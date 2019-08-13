@@ -1,7 +1,117 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Sponsor.create([
+  {
+    sponsor_name: "National Suicide Prevention Lifeline", 
+    sponsor_email: "founder@example.com",
+    password_digest: "thisismypassworddigest",
+    sponsor_tagline: "The premier lifeline in the United States.",
+    sponsor_website: "www.example.com",
+    sponsor_phone: "1-555-555-5555",
+    sponsor_address: "4000 Maple Drive",
+    sponsor_city: "New York",
+    sponsor_region: "NY",
+    sponsor_country: "United States of America",
+  }, 
+  {
+    sponsor_name: "Crisis Text Line", 
+    sponsor_email: "staff@example.com",
+    password_digest: "thisismypassworddigest",
+    sponsor_tagline: "The premier textline in the United States.",
+    sponsor_website: "www.example.com",
+    sponsor_phone: "1-555-555-5555",
+    sponsor_address: "4000 Maple Drive",
+    sponsor_city: "New York",
+    sponsor_region: "NY",
+    sponsor_country: "United States of America",
+  }, 
+  {
+    sponsor_name: "The Trevor Project", 
+    sponsor_email: "hey@example.com",
+    password_digest: "thisismypassworddigest",
+    sponsor_tagline: "A crisis intervention nonprofit for LGBTQ youth.",
+    sponsor_website: "www.example.com",
+    sponsor_phone: "1-555-555-5555",
+    sponsor_address: "4000 Maple Drive",
+    sponsor_city: "New York",
+    sponsor_region: "NY",
+    sponsor_country: "United States of America",
+  },
+])
+
+Listing.create([
+  {
+    listing_name: "National Suicide Prevention Lifeline", 
+    listing_tagline: "The premier lifeline in the United States.",
+    listing_desc: "The national suicide prevention lifeline is the premier lifeline in the United States, welcoming calls 24/7 for anyone in need.",
+    listing_industry: "Suicide Prevention",
+    listing_category: "Hotline",
+    listing_url_to_image: "",
+    listing_medium: "Phone",
+    listing_language: "English",
+    listing_hours: "Open 24/7",
+    listing_email: "info@example.com",
+    listing_phone: "1-555-555-5555",
+    listing_coverage: "United States of America",
+    sponsor_id: 1
+  }, 
+  {
+    listing_name: "The Veterans' Crisis Line", 
+    listing_tagline: "The premier lifeline for veterans and active duty military members in the United States.",
+    listing_desc: "The Veterans Crisis Line is a hotline provided by the National Suicide Prevention Lifeline with trained military and military family counselors.",
+    listing_industry: "Suicide Prevention",
+    listing_category: "Hotline",
+    listing_url_to_image: "",
+    listing_population: "Veterans",
+    listing_medium: "Phone",
+    listing_language: "English",
+    listing_hours: "Open 24/7",
+    listing_email: "info@example.com",
+    listing_phone: "1-555-555-5555p1",
+    listing_coverage: "United States of America",
+    sponsor_id: 1
+  }, 
+  {
+    listing_name: "The Crisis Text Line", 
+    listing_tagline: "The premier lifeline in the United States.",
+    listing_desc: "The national suicide prevention lifeline is the premier lifeline in the United States, welcoming calls 24/7 for anyone in need.",
+    listing_industry: "Suicide Prevention",
+    listing_category: "Textline",
+    listing_url_to_image: "",
+    listing_medium: "SMS",
+    listing_language: "English",
+    listing_hours: "Open 24/7",
+    listing_email: "info@example.com",
+    listing_sms: "741-741",
+    listing_coverage: "United States of America",
+    sponsor_id: 2
+  },
+  {
+    listing_name: "The Trevor Lifeline", 
+    listing_tagline: "The premier lifeline for LGBTQ youth in the USA.",
+    listing_desc: "The trevor project is a crisis hotline for .",
+    listing_industry: "Suicide Prevention",
+    listing_category: "Hotline",
+    listing_url_to_image: "",
+    listing_medium: "SMS",
+    listing_language: "English",
+    listing_hours: "Open 24/7",
+    listing_email: "info@example.com",
+    listing_phone: "855-555-5555",
+    listing_coverage: "United States of America",
+    sponsor_id: 3
+  },
+])
+
+Attribute.create([
+  {
+    attribute_name: "Teletype (TTY)",
+    attribute_category: "Accessibility",
+    attribute_icon: "fas fa-tty",
+    listing_id: 1,
+  },
+  {
+    attribute_name: "WCAG Compliance",
+    attribute_category: "Accessibility",
+    attribute_icon: "fas fa-low-vision",
+    listing_id: 3,
+  },
+])
