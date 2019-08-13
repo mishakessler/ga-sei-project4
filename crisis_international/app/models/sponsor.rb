@@ -1,3 +1,4 @@
 class Sponsor < ApplicationRecord
-  has_many :listings
+  has_secure_password
+  has_many :listings, dependent: :destroy
 end

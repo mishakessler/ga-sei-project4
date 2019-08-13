@@ -44,14 +44,14 @@ Listing.create([
     listing_desc: "The national suicide prevention lifeline is the premier lifeline in the United States, welcoming calls 24/7 for anyone in need.",
     listing_industry: "Suicide Prevention",
     listing_category: "Hotline",
-    listing_url_to_image: "",
+    listing_url_to_img: "https://imgur.com/KwVcfVE.png",
     listing_medium: "Phone",
     listing_language: "English",
     listing_hours: "Open 24/7",
     listing_email: "info@example.com",
     listing_phone: "1-555-555-5555",
     listing_coverage: "United States of America",
-    sponsor_id: 1
+    id: 1,
   }, 
   {
     listing_name: "The Veterans' Crisis Line", 
@@ -59,7 +59,7 @@ Listing.create([
     listing_desc: "The Veterans Crisis Line is a hotline provided by the National Suicide Prevention Lifeline with trained military and military family counselors.",
     listing_industry: "Suicide Prevention",
     listing_category: "Hotline",
-    listing_url_to_image: "",
+    listing_url_to_img: "https://imgur.com/KwVcfVE.png",
     listing_population: "Veterans",
     listing_medium: "Phone",
     listing_language: "English",
@@ -67,7 +67,7 @@ Listing.create([
     listing_email: "info@example.com",
     listing_phone: "1-555-555-5555p1",
     listing_coverage: "United States of America",
-    sponsor_id: 1
+    id: 1,
   }, 
   {
     listing_name: "The Crisis Text Line", 
@@ -75,14 +75,14 @@ Listing.create([
     listing_desc: "The national suicide prevention lifeline is the premier lifeline in the United States, welcoming calls 24/7 for anyone in need.",
     listing_industry: "Suicide Prevention",
     listing_category: "Textline",
-    listing_url_to_image: "",
+    listing_url_to_img: "https://imgur.com/M3VqjRZ.png",
     listing_medium: "SMS",
     listing_language: "English",
     listing_hours: "Open 24/7",
     listing_email: "info@example.com",
     listing_sms: "741-741",
     listing_coverage: "United States of America",
-    sponsor_id: 2
+    id: 2,
   },
   {
     listing_name: "The Trevor Lifeline", 
@@ -90,28 +90,13 @@ Listing.create([
     listing_desc: "The trevor project is a crisis hotline for .",
     listing_industry: "Suicide Prevention",
     listing_category: "Hotline",
-    listing_url_to_image: "",
-    listing_medium: "SMS",
+    listing_url_to_img: "https://imgur.com/KwVcfVE.png",
+    listing_medium: "Phone",
     listing_language: "English",
     listing_hours: "Open 24/7",
     listing_email: "info@example.com",
     listing_phone: "855-555-5555",
     listing_coverage: "United States of America",
-    sponsor_id: 3
-  },
-])
-
-Attribute.create([
-  {
-    attribute_name: "Teletype (TTY)",
-    attribute_category: "Accessibility",
-    attribute_icon: "fas fa-tty",
-    listing_id: 1,
-  },
-  {
-    attribute_name: "WCAG Compliance",
-    attribute_category: "Accessibility",
-    attribute_icon: "fas fa-low-vision",
-    listing_id: 3,
+    id: 3,
   },
 ])

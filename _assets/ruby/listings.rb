@@ -22,6 +22,7 @@ class CreateListings < ActiveRecord::Migration[5.2]
       t.string :listing_country
       t.string :listing_coverage
       t.references :sponsors
+      
       t.timestamps
     end
   end

@@ -100,16 +100,3 @@ Listing.create([
     sponsor_id: 3
   },
 ])
-
-Attribute.create([
-  {
-    attribute_name: "",
-    attribute_category: "",
-    attribute_icon: "",
-  },
-  {
-    attribute_name: "",
-    attribute_category: "",
-    attribute_icon: "",
-  },
-])
