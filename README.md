@@ -317,6 +317,11 @@ client
 
 ### Post-MVP Goals
 
+Server-Side
+- Generate Articles Table & Association
+- Add User Tips, Favorites Tables & Associations
+- Add Multiple Attribute Tables, Join Tables, Associations
+
 Client-Side
 - Affiliate Link Data for Sponsor Analytics
 - "Users Helped" Counter
