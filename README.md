@@ -8,10 +8,7 @@
   - [Permissions](#project-permissions)
 - [Design](#design)
   - [Branding](#branding)
-  <!-- - [Sitemap](#sitemap) -->
   - [Mockups](#mockups)
-    <!-- - [Desktop](#desktop)
-    - [Mobile](#mobile) -->
 - [Development](#development)
   - [MVP](#mvp)
     - [ERD Model](#mvp-erd-model)
@@ -316,6 +313,11 @@ client
 ![ERD Model](https://imgur.com/d4H2qB7.png)
 
 ### Post-MVP Goals
+
+Server-Side
+- Generate Articles Table & Association
+- Add User Tips, Favorites Tables & Associations
+- Add Multiple Attribute Tables, Join Tables, Associations
 
 Client-Side
 - Affiliate Link Data for Sponsor Analytics
