@@ -156,9 +156,11 @@ Client-Side
 - CRUD Functionality on All Resources via Axios
 - Core React Components
 
-<!-- 
-### Post-MVP Goals -->
 
+### Post-MVP Goals
+
+Client-Side
+– Affiliate 
 
 <br>
 
