@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <div>
-
+    <div className="hero">
+      <h2>Hero Component</h2>
     </div>
   )
 }
