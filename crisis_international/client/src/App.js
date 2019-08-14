@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { Link, Route } from 'react-router-dom';
 
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div className="app">
+
+      </div>
+    )
+  }
 }
 
-export default App;
