@@ -8,7 +8,7 @@ import Disclaimer from '../components/Disclaimer'
 
 // Forms
 import CreateListingForm from '../components/forms/CreateListingForm'
-import CreateSposorForm from '../components/forms/CreateSponsorForm'
+import CreateSponsorForm from '../components/forms/CreateSponsorForm'
 import EditListingForm from '../components/forms/EditListingForm'
 import EditSponsorForm from '../components/forms/EditSponsorForm'
 import LoginForm from '../components/forms/LoginForm'

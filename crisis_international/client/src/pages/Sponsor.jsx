@@ -62,6 +62,7 @@ class Sponsor extends Component {
           description={this.state.sponsor.sponsor_name}
           helper={this.state.helper}
         />
+        <EditSponsorForm />
       </div>
     )
   }
