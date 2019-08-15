@@ -63,6 +63,7 @@ class Listing extends Component {
           description={this.state.listing.listing_name}
           helper={this.state.helper}
         />
+        <EditListingForm />
       </div>
     )
   }
