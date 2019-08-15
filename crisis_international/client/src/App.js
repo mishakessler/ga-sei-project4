@@ -1,36 +1,141 @@
 import React, { Component } from 'react'
-import { Link, Route } from 'react-router-dom';
-import { indexSponsors, showSponsor } from './services/sponsor'
-import { indexListings, showListing } from './services/listing'
+import {
+  Link,
+  Route,
+  withRouter,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
+// Pages
+import Landing from './pages/Landing'
+import Directory from './pages/Directory'
+import Listings from './pages/Listings'
+import Sponsors from './pages/Sponsors'
+import About from './pages/About'
+import Contact from './pages/Contact'
+
+// Components
+import Hero from './components/Hero'
+import Subheader from './components/Subheader'
+import Listing from './pages/Listing'
+import Sponsor from './pages/Sponsor'
+import Disclaimer from './components/Disclaimer'
+
+// Forms
+import CreateListingForm from './components/forms/CreateListingForm'
+import CreateSposorForm from './components/forms/CreateSponsorForm'
+import EditListingForm from './components/forms/EditListingForm'
+import EditSponsorForm from './components/forms/EditSponsorForm'
+import LoginForm from './components/forms/LoginForm'
+
+// API Functions
+import {
+  createSponsor,
+  indexSponsors,
+  showSponsor,
+  updateSponsor,
+  destroySponsor,
+} from './services/sponsor'
+
+import {
+  createListing,
+  indexListings,
+  showListing,
+  updateListing,
+  destroyListing
+} from './services/listing'
+
+// Stylesheet
 import './App.css';
 
-export default class App extends Component {
+// Assets
+import Logo from './assets/graphics/CI-Wordmark-White.png'
+
+class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      sponsors: []
+      sponsors: [],
+      listings: [],
     }
   }
 
   componentDidMount = async () => {
+    const listings = await indexListings();
     const sponsors = await indexSponsors();
     this.setState({
       sponsors: sponsors,
+      listings: listings,
     })
   }
 
   render() {
     return (
       <div className="app">
-        {this.state.sponsors.map(sponsor =>
-          <div key={sponsor.id}>
-            <h2>{sponsor.sponsor_name}</h2>
-            <p>{sponsor.sponsor_tagline}</p>
+        <div className="header">
+          <div className="header-logo">
+            <Link to="/"><img src={Logo}></img></Link>
           </div>
-        )}
-      </div>
+          <div className="header-nav">
+            <Link to="/">Home</Link>
+            <Link to="/directory">Directory</Link>
+            <Link to="/sponsors">Sponsors</Link>
+            <Link to="/listings">Resources</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+          </div>
+        </div>
+
+        <div className="body">
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/directory" render={() =>
+              <Directory
+                listings={this.state.listings}
+                sponsors={this.state.sponsors}
+              />}
+            />
+            <Route exact path="/sponsors" render={() =>
+              <Sponsors sponsors={this.state.sponsors}
+              />}
+            />
+            <Route path="/sponsors/:id" render={() => <Sponsor />} />
+            <Route exact path="/listings" render={() =>
+              <Listings
+                listings={this.state.listings}
+              />}
+            />
+            <Route path="/listings/:id" render={() => <Listing />} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path='/*' render={() => <Redirect to='/' />} />
+          </Switch>
+        </div>
+
+        <div className="footer">
+          <div className="footer-nav">
+            <Link to="/">Home</Link>
+            <Link to="/directory">Directory</Link>
+            <Link to="/sponsors">Sponsors</Link>
+            <Link to="/listings">Resources</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+          </div>
+          <div className="footer-info">
+            <p>Crisis International was conceived, designed, and developed by Misha Kessler.</p>
+          </div>
+          <div className="footer-socials">
+
+          </div>
+          <div className="footer-disclaimer">
+            <p>Use of the Crisis International website is bound by the Terms of Use as defined by the <a href="https://beta.crisisinternational.org/trust" target="_blank">Crisis International <em>Trust & Transparency</em> documents</a>.</p>
+          </div>
+        </div>
+      </div >
     )
   }
 }
 
+
+export default withRouter(App)

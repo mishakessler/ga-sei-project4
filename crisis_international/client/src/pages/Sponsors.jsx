@@ -33,22 +33,31 @@ import {
 // Assets
 import Logo from '../assets/graphics/CI-Wordmark-White.png'
 
-class Landing extends Component {
+class Sponsors extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       type: "page",
-      title: "Welcome to Crisis International",
-      tagline: "Are you, or is someone you know, in crisis?",
-      description: "In the midst of a crisis, we often don't know where to go for help. Let's change that.",
-      helper: "Not sure where to start? View crisis resources by visiting our directory, browsing popular categories, or learn more about Crisis International below.",
+      title: "View All Sponsors",
+      tagline: null,
+      description: null,
+      helper: null,
+      sponsors: [],
     }
   }
 
+  componentDidMount = async () => {
+    const sponsors = await indexSponsors();
+    this.setState({
+      sponsors: sponsors,
+    })
+  }
+
+
   render() {
     return (
-      <div className="page landing-page">
+      <div className="page sponsors-page">
         <Hero
           type={this.state.type}
           title={this.state.title}
@@ -56,10 +65,19 @@ class Landing extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-
+        <div className="index sponsors-index">
+          {this.props.sponsors.map(sponsor =>
+            <div key={sponsor.id}>
+              <h2>{sponsor.sponsor_name}</h2>
+              <p>{sponsor.sponsor_tagline}</p>
+              <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
+            </div>
+          )}
+        </div>
       </div>
+
     )
   }
 }
 
-export default withRouter(Landing)
+export default withRouter(Sponsors)
