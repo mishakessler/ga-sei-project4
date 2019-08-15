@@ -4,8 +4,6 @@ import { Link, Route, withRouter } from 'react-router-dom';
 // Components
 import Hero from '../components/Hero'
 import Subheader from '../components/Subheader'
-import Listing from './Listing'
-import Sponsor from './Sponsor'
 import Disclaimer from '../components/Disclaimer'
 
 // Forms
@@ -58,6 +56,26 @@ class Directory extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
+        <div className="index directory-listings">
+          {this.props.listings.map(listing =>
+            <div key={listing.id}>
+              <h2>{listing.listing_name}</h2>
+              <p>{listing.listing_tagline}</p>
+              <Link to={`/listings/${listing.id}`}>View Resource</Link>
+            </div>
+          )}
+          <Link to="/listings">View All Resources</Link>
+        </div>
+        <div className="index directory-sponsors">
+          {this.props.sponsors.map(sponsor =>
+            <div key={sponsor.id}>
+              <h2>{sponsor.sponsor_name}</h2>
+              <p>{sponsor.sponsor_tagline}</p>
+              <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
+            </div>
+          )}
+          <Link to="/sponsors">View All Sponsors</Link>
+        </div>
       </div>
     )
   }

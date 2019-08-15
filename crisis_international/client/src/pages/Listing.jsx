@@ -35,15 +35,22 @@ import {
 import Logo from '../assets/graphics/CI-Wordmark-White.png'
 
 
-export default class Listing extends Component {
+class Listing extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       type: "resource",
       helper: null,
-      listing: {},
+      listing: [],
     }
+  }
+
+  componentDidMount = async () => {
+    const listing = await showListing(this.props.match.params.id)
+    this.setState({
+      listing: listing,
+    })
   }
 
   render() {
@@ -60,3 +67,5 @@ export default class Listing extends Component {
     )
   }
 }
+
+export default withRouter(Listing)

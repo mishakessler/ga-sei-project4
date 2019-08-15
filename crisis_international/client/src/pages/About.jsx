@@ -4,8 +4,6 @@ import { Link, Route, withRouter } from 'react-router-dom';
 // Components
 import Hero from '../components/Hero'
 import Subheader from '../components/Subheader'
-import Listing from './Listing'
-import Sponsor from './Sponsor'
 import Disclaimer from '../components/Disclaimer'
 
 // Forms

@@ -4,8 +4,6 @@ import { Link, Route, withRouter } from 'react-router-dom';
 // Components
 import Hero from '../components/Hero'
 import Subheader from '../components/Subheader'
-import Listing from './Listing'
-import Sponsor from './Sponsor'
 import Disclaimer from '../components/Disclaimer'
 
 // Forms
@@ -45,15 +43,7 @@ class Landing extends Component {
       tagline: "Are you, or is someone you know, in crisis?",
       description: "In the midst of a crisis, we often don't know where to go for help. Let's change that.",
       helper: "Not sure where to start? View crisis resources by visiting our directory, browsing popular categories, or learn more about Crisis International below.",
-      listings: [],
     }
-  }
-
-  componentDidMount = async () => {
-    const listings = await indexListings();
-    this.setState({
-      listings: listings,
-    })
   }
 
   render() {
@@ -67,12 +57,6 @@ class Landing extends Component {
           helper={this.state.helper}
         />
 
-        {this.state.listings.map(listing =>
-          <div key={listing.id}>
-            <h2>{listing.listing_name}</h2>
-            <p>{listing.listing_tagline}</p>
-          </div>
-        )}
       </div>
     )
   }

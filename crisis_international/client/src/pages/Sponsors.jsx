@@ -4,8 +4,6 @@ import { Link, Route, withRouter } from 'react-router-dom';
 // Components
 import Hero from '../components/Hero'
 import Subheader from '../components/Subheader'
-import Listing from './Listing'
-import Sponsor from './Sponsor'
 import Disclaimer from '../components/Disclaimer'
 
 // Forms
@@ -49,9 +47,17 @@ class Sponsors extends Component {
     }
   }
 
+  componentDidMount = async () => {
+    const sponsors = await indexSponsors();
+    this.setState({
+      sponsors: sponsors,
+    })
+  }
+
+
   render() {
     return (
-      <div className="index sponsors">
+      <div className="page sponsors-page">
         <Hero
           type={this.state.type}
           title={this.state.title}
@@ -59,7 +65,17 @@ class Sponsors extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
+        <div className="index sponsors-index">
+          {this.props.sponsors.map(sponsor =>
+            <div key={sponsor.id}>
+              <h2>{sponsor.sponsor_name}</h2>
+              <p>{sponsor.sponsor_tagline}</p>
+              <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
+            </div>
+          )}
+        </div>
       </div>
+
     )
   }
 }

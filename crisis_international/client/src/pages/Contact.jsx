@@ -4,13 +4,11 @@ import { Link, Route, withRouter } from 'react-router-dom';
 // Components
 import Hero from '../components/Hero'
 import Subheader from '../components/Subheader'
-import Listing from './Listing'
-import Sponsor from './Sponsor'
 import Disclaimer from '../components/Disclaimer'
 
 // Forms
 import CreateListingForm from '../components/forms/CreateListingForm'
-import CreateSposorForm from '../components/forms/CreateSponsorForm'
+import CreateSponsorForm from '../components/forms/CreateSponsorForm'
 import EditListingForm from '../components/forms/EditListingForm'
 import EditSponsorForm from '../components/forms/EditSponsorForm'
 import LoginForm from '../components/forms/LoginForm'

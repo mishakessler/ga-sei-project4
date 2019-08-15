@@ -34,15 +34,22 @@ import {
 // Assets
 import Logo from '../assets/graphics/CI-Wordmark-White.png'
 
-export default class Sponsor extends Component {
+class Sponsor extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       type: "sponsor",
       helper: null,
-      sponsor: {},
+      sponsor: [],
     }
+  }
+
+  componentDidMount = async () => {
+    const sponsor = await showSponsor(this.props.match.params.id)
+    this.setState({
+      sponsor: sponsor,
+    })
   }
 
   render() {
@@ -50,12 +57,14 @@ export default class Sponsor extends Component {
       <div className="page sponsor-page">
         <Hero
           type={this.state.type}
-          title={this.state.listing.listing_name}
-          tagline={this.state.listing.listing_tagline}
-          description={this.state.listing.listing_name}
+          title={this.state.sponsor.sponsor_name}
+          tagline={this.state.sponsor.sponsor_tagline}
+          description={this.state.sponsor.sponsor_name}
           helper={this.state.helper}
         />
       </div>
     )
   }
 }
+
+export default withRouter(Sponsor)

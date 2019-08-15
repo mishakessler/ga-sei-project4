@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import { Link, Route, withRouter } from 'react-router-dom';
+import {
+  Link,
+  Route,
+  withRouter,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
 // Pages
 import Landing from './pages/Landing'
@@ -50,7 +56,18 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      sponsors: [],
+      listings: [],
     }
+  }
+
+  componentDidMount = async () => {
+    const listings = await indexListings();
+    const sponsors = await indexSponsors();
+    this.setState({
+      sponsors: sponsors,
+      listings: listings,
+    })
   }
 
   render() {
@@ -71,12 +88,29 @@ class App extends Component {
         </div>
 
         <div className="body">
-          <Route path="/" exact render={() => <Landing />} />
-          <Route path="/directory" render={() => <Directory />} />
-          <Route path="/listings" render={() => <Listings />} />
-          <Route path="/sponsors" render={() => <Sponsors />} />
-          <Route path="/about" render={() => <About />} />
-          <Route path="/contact" render={() => <Contact />} />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/directory" render={() =>
+              <Directory
+                listings={this.state.listings}
+                sponsors={this.state.sponsors}
+              />}
+            />
+            <Route exact path="/sponsors" render={() =>
+              <Sponsors sponsors={this.state.sponsors}
+              />}
+            />
+            <Route path="/sponsors/:id" render={() => <Sponsor />} />
+            <Route exact path="/listings" render={() =>
+              <Listings
+                listings={this.state.listings}
+              />}
+            />
+            <Route path="/listings/:id" render={() => <Listing />} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path='/*' render={() => <Redirect to='/' />} />
+          </Switch>
         </div>
 
         <div className="footer">
