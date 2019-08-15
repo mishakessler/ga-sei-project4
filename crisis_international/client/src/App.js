@@ -18,7 +18,7 @@ import Disclaimer from './components/Disclaimer'
 
 // Forms
 import CreateListingForm from './components/forms/CreateListingForm'
-import CreateSposorForm from './components/forms/CreateSposorForm'
+import CreateSposorForm from './components/forms/CreateSponsorForm'
 import EditListingForm from './components/forms/EditListingForm'
 import EditSponsorForm from './components/forms/EditSponsorForm'
 import LoginForm from './components/forms/LoginForm'
@@ -44,7 +44,7 @@ import {
 import './App.css';
 
 // Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
+import Logo from './assets/graphics/CI-Wordmark-White.png'
 
 class App extends Component {
   constructor(props) {
@@ -63,6 +63,8 @@ class App extends Component {
           <div className="header-nav">
             <Link to="/">Home</Link>
             <Link to="/directory">Directory</Link>
+            <Link to="/sponsors">Sponsors</Link>
+            <Link to="/listings">Resources</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
           </div>
@@ -71,6 +73,8 @@ class App extends Component {
         <div className="body">
           <Route path="/" exact render={() => <Landing />} />
           <Route path="/directory" render={() => <Directory />} />
+          <Route path="/listings" render={() => <Listings />} />
+          <Route path="/sponsors" render={() => <Sponsors />} />
           <Route path="/about" render={() => <About />} />
           <Route path="/contact" render={() => <Contact />} />
         </div>
@@ -79,6 +83,8 @@ class App extends Component {
           <div className="footer-nav">
             <Link to="/">Home</Link>
             <Link to="/directory">Directory</Link>
+            <Link to="/sponsors">Sponsors</Link>
+            <Link to="/listings">Resources</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
           </div>

@@ -1,27 +1,19 @@
 import React, { Component } from 'react'
 import { Link, Route, withRouter } from 'react-router-dom';
 
-// Pages
-import Landing from './pages/Landing'
-import Directory from './pages/Directory'
-import Listings from './pages/Listings'
-import Sponsors from './pages/Sponsors'
-import About from './pages/About'
-import Contact from './pages/Contact'
-
 // Components
-import Hero from './components/Hero'
-import Subheader from './components/Subheader'
-import Listing from './pages/Listing'
-import Sponsor from './pages/Sponsor'
-import Disclaimer from './components/Disclaimer'
+import Hero from '../components/Hero'
+import Subheader from '../components/Subheader'
+import Listing from './Listing'
+import Sponsor from './Sponsor'
+import Disclaimer from '../components/Disclaimer'
 
 // Forms
-import CreateListingForm from './components/forms/CreateListingForm'
-import CreateSposorForm from './components/forms/CreateSposorForm'
-import EditListingForm from './components/forms/EditListingForm'
-import EditSponsorForm from './components/forms/EditSponsorForm'
-import LoginForm from './components/forms/LoginForm'
+import CreateListingForm from '../components/forms/CreateListingForm'
+import CreateSposorForm from '../components/forms/CreateSponsorForm'
+import EditListingForm from '../components/forms/EditListingForm'
+import EditSponsorForm from '../components/forms/EditSponsorForm'
+import LoginForm from '../components/forms/LoginForm'
 
 // API Functions
 import {
@@ -30,7 +22,7 @@ import {
   showSponsor,
   updateSponsor,
   destroySponsor,
-} from './services/sponsor'
+} from '../services/sponsor'
 
 import {
   createListing,
@@ -38,10 +30,7 @@ import {
   showListing,
   updateListing,
   destroyListing
-} from './services/listing'
-
-// Stylesheet
-import './App.css';
+} from '../services/listing'
 
 // Assets
 import Logo from '../assets/graphics/CI-Wordmark-White.png'
@@ -51,14 +40,25 @@ class Sponsors extends Component {
     super(props)
 
     this.state = {
-
+      type: "page",
+      title: "View All Sponsors",
+      tagline: null,
+      description: null,
+      helper: null,
+      sponsors: [],
     }
   }
 
   render() {
     return (
       <div className="index sponsors">
-        <h2>All Sponsors Here</h2>
+        <Hero
+          type={this.state.type}
+          title={this.state.title}
+          tagline={this.state.tagline}
+          description={this.state.description}
+          helper={this.state.helper}
+        />
       </div>
     )
   }

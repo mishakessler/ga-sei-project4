@@ -1,27 +1,18 @@
 import React, { Component } from 'react'
 import { Link, Route, withRouter } from 'react-router-dom';
 
-// Pages
-import Landing from './pages/Landing'
-import Directory from './pages/Directory'
-import Listings from './pages/Listings'
-import Sponsors from './pages/Sponsors'
-import About from './pages/About'
-import Contact from './pages/Contact'
-
 // Components
-import Hero from './components/Hero'
-import Subheader from './components/Subheader'
-import Listing from './pages/Listing'
-import Sponsor from './pages/Sponsor'
-import Disclaimer from './components/Disclaimer'
+import Hero from '../components/Hero'
+import Subheader from '../components/Subheader'
+import Sponsor from './Sponsor'
+import Disclaimer from '../components/Disclaimer'
 
 // Forms
-import CreateListingForm from './components/forms/CreateListingForm'
-import CreateSposorForm from './components/forms/CreateSposorForm'
-import EditListingForm from './components/forms/EditListingForm'
-import EditSponsorForm from './components/forms/EditSponsorForm'
-import LoginForm from './components/forms/LoginForm'
+import CreateListingForm from '../components/forms/CreateListingForm'
+import CreateSposorForm from '../components/forms/CreateSponsorForm'
+import EditListingForm from '../components/forms/EditListingForm'
+import EditSponsorForm from '../components/forms/EditSponsorForm'
+import LoginForm from '../components/forms/LoginForm'
 
 // API Functions
 import {
@@ -30,7 +21,7 @@ import {
   showSponsor,
   updateSponsor,
   destroySponsor,
-} from './services/sponsor'
+} from '../services/sponsor'
 
 import {
   createListing,
@@ -38,27 +29,33 @@ import {
   showListing,
   updateListing,
   destroyListing
-} from './services/listing'
-
-// Stylesheet
-import './App.css';
+} from '../services/listing'
 
 // Assets
 import Logo from '../assets/graphics/CI-Wordmark-White.png'
+
 
 export default class Listing extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-
+      type: "resource",
+      helper: null,
+      listing: {},
     }
   }
 
   render() {
     return (
       <div className="page listing-page">
-        <h2>Single Listing Page</h2>
+        <Hero
+          type={this.state.type}
+          title={this.state.listing.listing_name}
+          tagline={this.state.listing.listing_tagline}
+          description={this.state.listing.listing_name}
+          helper={this.state.helper}
+        />
       </div>
     )
   }
