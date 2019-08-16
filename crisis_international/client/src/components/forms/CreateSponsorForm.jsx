@@ -1,19 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class CreateSponsorForm extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-      <div className="form create-sponsor-form">
-        <h2>Create Sponsor Form</h2>
-      </div>
-    )
-  }
+export default function CreateSponsorForm(props) {
+  return (
+    <div className="form create-sponsor-form">
+      <h2>Add Your Organization</h2>
+      <form onSubmit={props.handleSubmit}>
+        <input onChange={props.handleChange} name="name" type="text" placeholder="Organization Name" /> <br />
+        <input onChange={props.handleChange} name="email" type="email" placeholder="Email" /><br />
+        <input onChange={props.handleChange} name="password" type="password" placeholder="Password" /> <br />
+        <input type="submit" value="Add Resource" />
+      </form>
+    </div>
+  )
 }

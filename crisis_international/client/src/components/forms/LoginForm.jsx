@@ -12,7 +12,10 @@ export default class LoginForm extends Component {
   render() {
     return (
       <div className="form login-form">
-        <h2>Login Form</h2>
+        <h2>Login</h2>
+        <form >
+
+        </form>
       </div>
     )
   }

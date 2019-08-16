@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Route, withRouter } from 'react-router-dom';
+import { Link, Route, Switch, withRouter } from 'react-router-dom';
 
 // Components
 import Hero from '../components/Hero'
@@ -43,7 +43,14 @@ class Listings extends Component {
       tagline: null,
       description: null,
       helper: null,
+      showForm: false,
     }
+  }
+
+  showForm = () => {
+    this.setState({
+      showForm: true,
+    })
   }
 
   render() {
@@ -64,6 +71,11 @@ class Listings extends Component {
               <Link to={`/listings/${listing.id}`}>View Resource</Link>
             </div>
           )}
+        </div>
+        <div className="listings-form">
+          <button onClick={this.showForm}>Add Resource</button>
+          {this.state.showForm && <CreateListingForm handleSubmit={this.handleSubmit} />}
+          {this.props.autoForm && !this.state.showForm ? <CreateListingForm handleSubmit={this.handleSubmit} /> : null}
         </div>
       </div>
     )

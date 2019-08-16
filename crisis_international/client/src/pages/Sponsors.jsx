@@ -44,16 +44,45 @@ class Sponsors extends Component {
       description: null,
       helper: null,
       sponsors: [],
+      showForm: false,
+      hideFormButton: false,
+      sponsor: {
+        sponsor_name: '',
+        sponsor_email: '',
+        sponsor_password: '',
+      }
     }
   }
 
-  componentDidMount = async () => {
-    const sponsors = await indexSponsors();
-    this.setState({
-      sponsors: sponsors,
-    })
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      sponsor: {
+        ...prevState.sponsor,
+        [name]: value
+      }
+    }))
   }
 
+  handleSubmit = async (ev) => {
+    ev.preventDefault()
+
+    const newSponsor = await createSponsor(this.state.sponsor);
+
+    this.setState((prevState) => ({
+      sponsors: [
+        ...prevState.sponsors, newSponsor,
+      ],
+      showForm: false,
+    }))
+  }
+
+  showForm = () => {
+    this.setState({
+      showForm: true,
+      hideFormButton: true,
+    })
+  }
 
   render() {
     return (
@@ -73,6 +102,14 @@ class Sponsors extends Component {
               <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
             </div>
           )}
+        </div>
+        <div className="sponsors-form">
+          {!this.state.hideFormButton && <button
+            onClick={this.showForm} >Add Sponsor</button>}
+          {this.state.showForm && <CreateSponsorForm
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+          />}
         </div>
       </div>
 

@@ -1,19 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class CreateListingForm extends Component {
-  constructor(props) {
-    super(props)
+export default function CreateListingForm(props) {
+  return (
+    <div className="form create-listing-form">
+      <h2>Add Your Resource</h2>
+      <form >
 
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-      <div className="form create-listing-form">
-        <h2>Create Listing Form</h2>
-      </div>
-    )
-  }
+      </form>
+    </div>
+  )
 }
+

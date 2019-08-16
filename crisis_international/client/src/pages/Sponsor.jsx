@@ -42,6 +42,7 @@ class Sponsor extends Component {
       type: "sponsor",
       helper: null,
       sponsor: [],
+      showForm: false,
     }
   }
 
@@ -49,6 +50,12 @@ class Sponsor extends Component {
     const sponsor = await showSponsor(this.props.match.params.id)
     this.setState({
       sponsor: sponsor,
+    })
+  }
+
+  showForm = () => {
+    this.setState({
+      showForm: true,
     })
   }
 

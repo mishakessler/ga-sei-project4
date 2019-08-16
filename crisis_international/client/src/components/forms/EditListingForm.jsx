@@ -1,19 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class EditListingForm extends Component {
-  constructor(props) {
-    super(props)
+export default function EditListingForm(props) {
+  return (
+    <div className="form edit-listing-form">
+      <h2>Edit {props.listings.listing_name}</h2>
+      <form >
 
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-      <div className="form edit-listing-form">
-        <h2>Edit Listing Form</h2>
-      </div>
-    )
-  }
+      </form>
+    </div>
+  )
 }
+

@@ -8,7 +8,7 @@ const api = axios.create({
 // CREATE
 
 export const createSponsor = async (data) => {
-  const resp = await api.post('/', data)
+  const resp = await api.post('/', { sponsor: data })
   return resp.data
 }
 

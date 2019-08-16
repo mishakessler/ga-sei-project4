@@ -43,6 +43,7 @@ class Listing extends Component {
       type: "resource",
       helper: null,
       listing: [],
+      showForm: false,
     }
   }
 
@@ -50,6 +51,12 @@ class Listing extends Component {
     const listing = await showListing(this.props.match.params.id)
     this.setState({
       listing: listing,
+    })
+  }
+
+  showForm = () => {
+    this.setState({
+      showForm: true,
     })
   }
 

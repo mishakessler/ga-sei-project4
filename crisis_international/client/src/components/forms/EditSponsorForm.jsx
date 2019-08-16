@@ -1,19 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class EditSponsorForm extends Component {
-  constructor(props) {
-    super(props)
+export default function EditSponsorForm(props) {
+  return (
+    <div className="form edit-sponsor-form">
+      <h2>Edit {props.sponsor.sponsor_name}</h2>
+      <form >
 
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-      <div className="form edit-sponsor-form">
-        <h2>Edit Sponsor Form</h2>
-      </div>
-    )
-  }
+      </form>
+    </div>
+  )
 }
