@@ -43,13 +43,59 @@ class Listings extends Component {
       tagline: null,
       description: null,
       helper: null,
+      listings: [],
       showForm: false,
+      hideFormButton: false,
+      submitError: false,
+      listing: {
+        listing_name: '',
+        listing_tagline: '',
+        listing_desc: '',
+        listing_industry: '',
+        listing_category: '',
+      }
+    }
+  }
+
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      listing: {
+        ...prevState.listing,
+        [name]: value
+      }
+    }))
+  }
+
+  handleSubmit = async (ev) => {
+    try {
+      ev.preventDefault()
+      const newListing = await createListing(this.state.listing);
+      this.setState((prevState) => ({
+        listings: [
+          ...prevState.listings, newListing,
+        ],
+        showForm: false,
+      }))
+    } catch (e) {
+      console.log(e)
+      this.setState({
+        submitError: true,
+      });
     }
   }
 
   showForm = () => {
     this.setState({
       showForm: true,
+      hideFormButton: true,
+    })
+  }
+
+  hideForm = () => {
+    this.setState({
+      showForm: false,
+      hideFormButton: false,
     })
   }
 
@@ -73,9 +119,24 @@ class Listings extends Component {
           )}
         </div>
         <div className="listings-form">
-          <button onClick={this.showForm}>Add Resource</button>
-          {this.state.showForm && <CreateListingForm handleSubmit={this.handleSubmit} />}
-          {this.props.autoForm && !this.state.showForm ? <CreateListingForm handleSubmit={this.handleSubmit} /> : null}
+          {!this.state.hideFormButton &&
+            <button
+              onClick={this.showForm}>Add Resource</button>
+          }
+          {this.state.showForm &&
+            <CreateListingForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              submitError={this.state.submitError}
+              hideForm={this.hideForm}
+            />}
+          {this.props.autoForm && !this.state.showForm ?
+            <CreateListingForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              submitError={this.state.submitError}
+              hideForm={this.hideForm}
+            /> : null}
         </div>
       </div>
     )

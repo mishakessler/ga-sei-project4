@@ -46,10 +46,11 @@ class Sponsors extends Component {
       sponsors: [],
       showForm: false,
       hideFormButton: false,
+      submitError: false,
       sponsor: {
         sponsor_name: '',
         sponsor_email: '',
-        sponsor_password: '',
+        password_digest: '',
       }
     }
   }
@@ -65,22 +66,34 @@ class Sponsors extends Component {
   }
 
   handleSubmit = async (ev) => {
-    ev.preventDefault()
-
-    const newSponsor = await createSponsor(this.state.sponsor);
-
-    this.setState((prevState) => ({
-      sponsors: [
-        ...prevState.sponsors, newSponsor,
-      ],
-      showForm: false,
-    }))
+    try {
+      ev.preventDefault()
+      const newSponsor = await createSponsor(this.state.sponsor);
+      this.setState((prevState) => ({
+        sponsors: [
+          ...prevState.sponsors, newSponsor,
+        ],
+        showForm: false,
+      }))
+    } catch (e) {
+      console.log(e)
+      this.setState({
+        submitError: true,
+      });
+    }
   }
 
   showForm = () => {
     this.setState({
       showForm: true,
       hideFormButton: true,
+    })
+  }
+
+  hideForm = () => {
+    this.setState({
+      showForm: false,
+      hideFormButton: false,
     })
   }
 
@@ -94,21 +107,27 @@ class Sponsors extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="index sponsors-index">
-          {this.props.sponsors.map(sponsor =>
-            <div key={sponsor.id}>
-              <h2>{sponsor.sponsor_name}</h2>
-              <p>{sponsor.sponsor_tagline}</p>
-              <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
-            </div>
-          )}
-        </div>
+        {this.props.sponsors &&
+          <div className="index sponsors-index">
+            {this.props.sponsors.map(sponsor =>
+              <div key={sponsor.id}>
+                <h2>{sponsor.sponsor_name}</h2>
+                <p>{sponsor.sponsor_tagline}</p>
+                <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
+              </div>
+            )}
+          </div>
+        }
         <div className="sponsors-form">
-          {!this.state.hideFormButton && <button
-            onClick={this.showForm} >Add Sponsor</button>}
+          {!this.state.hideFormButton &&
+            <button
+              onClick={this.showForm} >Add Sponsor</button>
+          }
           {this.state.showForm && <CreateSponsorForm
             handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
+            submitError={this.state.submitError}
+            hideForm={this.hideForm}
           />}
         </div>
       </div>

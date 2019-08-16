@@ -57,6 +57,14 @@ class Listing extends Component {
   showForm = () => {
     this.setState({
       showForm: true,
+      hideFormButton: true,
+    })
+  }
+
+  hideForm = () => {
+    this.setState({
+      showForm: false,
+      hideFormButton: false,
     })
   }
 
@@ -70,7 +78,19 @@ class Listing extends Component {
           description={this.state.listing.listing_name}
           helper={this.state.helper}
         />
-        <EditListingForm />
+        <div className="listings-form">
+          {!this.state.hideFormButton &&
+            <button
+              onClick={this.showForm} >Edit Resource</button>
+          }
+          {this.state.showForm && <EditListingForm
+            listing_name={this.state.listing.listing_name}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            submitError={this.state.submitError}
+            hideForm={this.hideForm}
+          />}
+        </div>
       </div>
     )
   }

@@ -43,6 +43,8 @@ class Sponsor extends Component {
       helper: null,
       sponsor: [],
       showForm: false,
+      hideFormButton: false,
+      submitError: false,
     }
   }
 
@@ -56,6 +58,14 @@ class Sponsor extends Component {
   showForm = () => {
     this.setState({
       showForm: true,
+      hideFormButton: true,
+    })
+  }
+
+  hideForm = () => {
+    this.setState({
+      showForm: false,
+      hideFormButton: false,
     })
   }
 
@@ -69,7 +79,19 @@ class Sponsor extends Component {
           description={this.state.sponsor.sponsor_name}
           helper={this.state.helper}
         />
-        <EditSponsorForm />
+        <div className="sponsors-form">
+          {!this.state.hideFormButton &&
+            <button
+              onClick={this.showForm} >Edit Sponsor</button>
+          }
+          {this.state.showForm && <EditSponsorForm
+            sponsor_name={this.state.sponsor.sponsor_name}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            submitError={this.state.submitError}
+            hideForm={this.hideForm}
+          />}
+        </div>
       </div>
     )
   }

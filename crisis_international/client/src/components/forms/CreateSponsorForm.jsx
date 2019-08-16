@@ -5,11 +5,13 @@ export default function CreateSponsorForm(props) {
     <div className="form create-sponsor-form">
       <h2>Add Your Organization</h2>
       <form onSubmit={props.handleSubmit}>
-        <input onChange={props.handleChange} name="name" type="text" placeholder="Organization Name" /> <br />
-        <input onChange={props.handleChange} name="email" type="email" placeholder="Email" /><br />
-        <input onChange={props.handleChange} name="password" type="password" placeholder="Password" /> <br />
-        <input type="submit" value="Add Resource" />
+        <input onChange={props.handleChange} name="sponsor_name" type="text" placeholder="Organization Name" /> <br />
+        <input onChange={props.handleChange} name="sponsor_email" type="email" placeholder="Email" /><br />
+        <input onChange={props.handleChange} name="password_digest" type="password" placeholder="Password" /> <br />
+        <input type="submit" value="Submit Sponsor" />
       </form>
+      {props.submitError && <p className="error-alert">Sorry, your request could not be processed.</p>}
+      <button onClick={props.hideForm}>Close Form</button>
     </div>
   )
 }
