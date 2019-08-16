@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Route, withRouter } from 'react-router-dom';
+import { Link, Route, Switch, withRouter } from 'react-router-dom';
 
 // Components
 import Hero from '../components/Hero'
@@ -43,7 +43,60 @@ class Listings extends Component {
       tagline: null,
       description: null,
       helper: null,
+      listings: [],
+      showForm: false,
+      hideFormButton: false,
+      errorAlert: false,
+      listing: {
+        listing_name: '',
+        listing_tagline: '',
+        listing_desc: '',
+        listing_industry: '',
+        listing_category: '',
+      }
     }
+  }
+
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      listing: {
+        ...prevState.listing,
+        [name]: value
+      }
+    }))
+  }
+
+  handleSubmit = async (ev) => {
+    try {
+      ev.preventDefault()
+      const newListing = await createListing(this.state.listing);
+      this.setState((prevState) => ({
+        listings: [
+          ...prevState.listings, newListing,
+        ],
+        showForm: false,
+      }))
+    } catch (e) {
+      console.log(e)
+      this.setState({
+        errorAlert: true,
+      });
+    }
+  }
+
+  showForm = () => {
+    this.setState({
+      showForm: true,
+      hideFormButton: true,
+    })
+  }
+
+  hideForm = () => {
+    this.setState({
+      showForm: false,
+      hideFormButton: false,
+    })
   }
 
   render() {
@@ -64,6 +117,20 @@ class Listings extends Component {
               <Link to={`/listings/${listing.id}`}>View Resource</Link>
             </div>
           )}
+        </div>
+        <div className="listings-form">
+          {!this.state.hideFormButton &&
+            <button
+              onClick={this.showForm}>Add Resource</button>
+          }
+          {this.state.showForm &&
+            <CreateListingForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              successAlert={this.state.successAlert}
+              errorAlert={this.state.errorAlert}
+              hideForm={this.hideForm}
+            />}
         </div>
       </div>
     )

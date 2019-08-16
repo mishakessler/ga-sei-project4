@@ -44,16 +44,58 @@ class Sponsors extends Component {
       description: null,
       helper: null,
       sponsors: [],
+      showForm: false,
+      hideFormButton: false,
+      errorAlert: false,
+      sponsor: {
+        sponsor_name: '',
+        sponsor_email: '',
+        password_digest: '',
+      }
     }
   }
 
-  componentDidMount = async () => {
-    const sponsors = await indexSponsors();
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      sponsor: {
+        ...prevState.sponsor,
+        [name]: value
+      }
+    }))
+  }
+
+  handleSubmit = async (ev) => {
+    try {
+      ev.preventDefault()
+      const newSponsor = await createSponsor(this.state.sponsor);
+      this.setState((prevState) => ({
+        sponsors: [
+          ...prevState.sponsors, newSponsor,
+        ],
+        showForm: false,
+      }))
+    } catch (e) {
+      console.log(e)
+      this.setState({
+        errorAlert: true,
+      });
+    }
+  }
+
+  showForm = () => {
     this.setState({
-      sponsors: sponsors,
+      showForm: true,
+      hideFormButton: true,
     })
   }
 
+  hideForm = () => {
+    this.setState({
+      showForm: false,
+      hideFormButton: false,
+    })
+  }
 
   render() {
     return (
@@ -65,14 +107,30 @@ class Sponsors extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="index sponsors-index">
-          {this.props.sponsors.map(sponsor =>
-            <div key={sponsor.id}>
-              <h2>{sponsor.sponsor_name}</h2>
-              <p>{sponsor.sponsor_tagline}</p>
-              <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
-            </div>
-          )}
+        {this.props.sponsors &&
+          <div className="index sponsors-index">
+            {this.props.sponsors.map(sponsor =>
+              <div key={sponsor.id}>
+                <h2>{sponsor.sponsor_name}</h2>
+                <p>{sponsor.sponsor_tagline}</p>
+                <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
+              </div>
+            )}
+          </div>
+        }
+        <div className="sponsors-form">
+          {!this.state.hideFormButton &&
+            <button
+              onClick={this.showForm} >Add Sponsor</button>
+          }
+          {this.state.showForm &&
+            <CreateSponsorForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              successAlert={this.state.successAlert}
+              errorAlert={this.state.errorAlert}
+              hideForm={this.hideForm}
+            />}
         </div>
       </div>
 

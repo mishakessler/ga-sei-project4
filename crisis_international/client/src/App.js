@@ -84,6 +84,7 @@ class App extends Component {
             <Link to="/listings">Resources</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
+            <Link to="/listings/add">Add Resource</Link>
           </div>
         </div>
 
@@ -103,6 +104,12 @@ class App extends Component {
             <Route path="/sponsors/:id" render={() => <Sponsor />} />
             <Route exact path="/listings" render={() =>
               <Listings
+                listings={this.state.listings}
+              />}
+            />
+            <Route exact path="/listings/add" render={(props) =>
+              <Listings
+                autoForm={true}
                 listings={this.state.listings}
               />}
             />
