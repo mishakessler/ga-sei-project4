@@ -131,14 +131,6 @@ class Listings extends Component {
               errorAlert={this.state.errorAlert}
               hideForm={this.hideForm}
             />}
-          {this.props.autoForm && !this.state.showForm ?
-            <CreateListingForm
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-              successAlert={this.state.successAlert}
-              errorAlert={this.state.errorAlert}
-              hideForm={this.hideForm}
-            /> : null}
         </div>
       </div>
     )

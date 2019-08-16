@@ -123,13 +123,14 @@ class Sponsors extends Component {
             <button
               onClick={this.showForm} >Add Sponsor</button>
           }
-          {this.state.showForm && <CreateSponsorForm
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            successAlert={this.state.successAlert}
-            errorAlert={this.state.errorAlert}
-            hideForm={this.hideForm}
-          />}
+          {this.state.showForm &&
+            <CreateSponsorForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              successAlert={this.state.successAlert}
+              errorAlert={this.state.errorAlert}
+              hideForm={this.hideForm}
+            />}
         </div>
       </div>
 

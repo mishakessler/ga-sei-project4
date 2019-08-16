@@ -19,7 +19,9 @@ export default function CreateListingForm(props) {
           type="submit"
           value="Submit Resource" />
       </form>
-      {props.submitError &&
+      {props.successAlert &&
+        <p className="success-alert">Your submission was successfully added.</p>}
+      {props.errorAlert &&
         <p className="error-alert">Sorry, your request could not be processed.</p>}
       <button onClick={props.hideForm}>Close Form</button>
     </div>

@@ -109,7 +109,7 @@ class Listing extends Component {
           type={this.state.type}
           title={this.state.listing.listing_name}
           tagline={this.state.listing.listing_tagline}
-          description={this.state.listing.listing_name}
+          description={this.state.listing.listing_desc}
           helper={this.state.helper}
         />
         <div className="listings-form">

@@ -108,7 +108,7 @@ class Sponsor extends Component {
           type={this.state.type}
           title={this.state.sponsor.sponsor_name}
           tagline={this.state.sponsor.sponsor_tagline}
-          description={this.state.sponsor.sponsor_name}
+          description={this.state.sponsor.sponsor_desc}
           helper={this.state.helper}
         />
         <div className="sponsors-form">
