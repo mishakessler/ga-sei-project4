@@ -44,7 +44,12 @@ class Sponsor extends Component {
       sponsor: [],
       showForm: false,
       hideFormButton: false,
-      submitError: false,
+      errorAlert: false,
+      successAlert: false,
+      sponsorData: {
+        sponsor_name: '',
+        sponsor_email: '',
+      }
     }
   }
 
@@ -53,6 +58,33 @@ class Sponsor extends Component {
     this.setState({
       sponsor: sponsor,
     })
+  }
+
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      sponsorData: {
+        ...prevState.sponsorData,
+        [name]: value
+      }
+    }))
+  }
+
+  handleSubmit = async (ev) => {
+    try {
+      ev.preventDefault()
+      const updatedSponsor = await updateSponsor(this.props.match.params.id, this.state.sponsorData)
+      this.setState({
+        sponsor: updatedSponsor,
+        showForm: false,
+        successAlert: true,
+      })
+    } catch (e) {
+      console.log(e)
+      this.setState({
+        errorAlert: true,
+      });
+    }
   }
 
   showForm = () => {
@@ -82,13 +114,14 @@ class Sponsor extends Component {
         <div className="sponsors-form">
           {!this.state.hideFormButton &&
             <button
-              onClick={this.showForm} >Edit Sponsor</button>
+              onClick={this.showForm} >Update Sponsor</button>
           }
           {this.state.showForm && <EditSponsorForm
             sponsor_name={this.state.sponsor.sponsor_name}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
-            submitError={this.state.submitError}
+            successAlert={this.state.successAlert}
+            errorAlert={this.state.errorAlert}
             hideForm={this.hideForm}
           />}
         </div>

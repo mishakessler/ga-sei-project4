@@ -46,7 +46,7 @@ class Listings extends Component {
       listings: [],
       showForm: false,
       hideFormButton: false,
-      submitError: false,
+      errorAlert: false,
       listing: {
         listing_name: '',
         listing_tagline: '',
@@ -80,7 +80,7 @@ class Listings extends Component {
     } catch (e) {
       console.log(e)
       this.setState({
-        submitError: true,
+        errorAlert: true,
       });
     }
   }
@@ -127,14 +127,16 @@ class Listings extends Component {
             <CreateListingForm
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
-              submitError={this.state.submitError}
+              successAlert={this.state.successAlert}
+              errorAlert={this.state.errorAlert}
               hideForm={this.hideForm}
             />}
           {this.props.autoForm && !this.state.showForm ?
             <CreateListingForm
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
-              submitError={this.state.submitError}
+              successAlert={this.state.successAlert}
+              errorAlert={this.state.errorAlert}
               hideForm={this.hideForm}
             /> : null}
         </div>

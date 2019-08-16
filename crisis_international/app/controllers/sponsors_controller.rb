@@ -29,7 +29,7 @@ class SponsorsController < ApplicationController
 
   def destroy
     @sponsor = Sponsor.find(params[:id])
-    @book.destroy
+    @sponsor.destroy
     head 204
   end
 

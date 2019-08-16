@@ -46,7 +46,7 @@ class Sponsors extends Component {
       sponsors: [],
       showForm: false,
       hideFormButton: false,
-      submitError: false,
+      errorAlert: false,
       sponsor: {
         sponsor_name: '',
         sponsor_email: '',
@@ -78,7 +78,7 @@ class Sponsors extends Component {
     } catch (e) {
       console.log(e)
       this.setState({
-        submitError: true,
+        errorAlert: true,
       });
     }
   }
@@ -124,9 +124,10 @@ class Sponsors extends Component {
               onClick={this.showForm} >Add Sponsor</button>
           }
           {this.state.showForm && <CreateSponsorForm
-            handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
-            submitError={this.state.submitError}
+            handleSubmit={this.handleSubmit}
+            successAlert={this.state.successAlert}
+            errorAlert={this.state.errorAlert}
             hideForm={this.hideForm}
           />}
         </div>

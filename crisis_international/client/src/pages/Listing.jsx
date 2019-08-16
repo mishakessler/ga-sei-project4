@@ -44,6 +44,13 @@ class Listing extends Component {
       helper: null,
       listing: [],
       showForm: false,
+      hideFormButton: false,
+      errorAlert: false,
+      successAlert: false,
+      listingData: {
+        listing_name: '',
+        listing_tagline: '',
+      }
     }
   }
 
@@ -52,6 +59,33 @@ class Listing extends Component {
     this.setState({
       listing: listing,
     })
+  }
+
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      listingData: {
+        ...prevState.listingData,
+        [name]: value
+      }
+    }))
+  }
+
+  handleSubmit = async (ev) => {
+    try {
+      ev.preventDefault()
+      const updatedListing = await updateListing(this.props.match.params.id, this.state.listingData)
+      this.setState({
+        listing: updatedListing,
+        showForm: false,
+        successAlert: true,
+      })
+    } catch (e) {
+      console.log(e)
+      this.setState({
+        errorAlert: true,
+      });
+    }
   }
 
   showForm = () => {
@@ -81,13 +115,14 @@ class Listing extends Component {
         <div className="listings-form">
           {!this.state.hideFormButton &&
             <button
-              onClick={this.showForm} >Edit Resource</button>
+              onClick={this.showForm} >Update Resource</button>
           }
           {this.state.showForm && <EditListingForm
             listing_name={this.state.listing.listing_name}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
-            submitError={this.state.submitError}
+            successAlert={this.state.successAlert}
+            errorAlert={this.state.errorAlert}
             hideForm={this.hideForm}
           />}
         </div>
