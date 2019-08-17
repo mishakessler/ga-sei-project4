@@ -1,33 +1,16 @@
+// React
 import React, { Component } from 'react'
-import { Link, Route, Switch, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 // Components
 import Hero from '../components/Hero'
-import Subheader from '../components/Subheader'
-import Disclaimer from '../components/Disclaimer'
 
 // Forms
 import CreateListingForm from '../components/forms/CreateListingForm'
-import CreateSponsorForm from '../components/forms/CreateSponsorForm'
-import EditListingForm from '../components/forms/EditListingForm'
-import EditSponsorForm from '../components/forms/EditSponsorForm'
-import LoginForm from '../components/forms/LoginForm'
 
 // API Functions
 import {
-  createSponsor,
-  indexSponsors,
-  showSponsor,
-  updateSponsor,
-  destroySponsor,
-} from '../services/sponsor'
-
-import {
   createListing,
-  indexListings,
-  showListing,
-  updateListing,
-  destroyListing
 } from '../services/listing'
 
 // Assets
@@ -114,7 +97,7 @@ class Listings extends Component {
             <div key={listing.id}>
               <h2>{listing.listing_name}</h2>
               <p>{listing.listing_tagline}</p>
-              <Link to={`/listings/${listing.id}`}>View Resource</Link>
+              <Link to={`/resources/${listing.id}`}>View Resource</Link>
             </div>
           )}
         </div>

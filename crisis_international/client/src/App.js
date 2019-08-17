@@ -1,3 +1,4 @@
+// React
 import React, { Component } from 'react'
 import {
   Link,
@@ -16,8 +17,6 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 
 // Components
-import Hero from './components/Hero'
-import Subheader from './components/Subheader'
 import Listing from './pages/Listing'
 import Sponsor from './pages/Sponsor'
 import Disclaimer from './components/Disclaimer'
@@ -50,7 +49,7 @@ import {
 import './App.css';
 
 // Assets
-import Logo from './assets/graphics/CI-Wordmark-White.png'
+import Logo from './assets/graphics/CI-Wordmark-Keppel.png'
 
 class App extends Component {
   constructor(props) {
@@ -84,7 +83,7 @@ class App extends Component {
             <Link to="/resources">Resources</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
-            <Link to="/listings/add">Add Resource</Link>
+            <Link to="/resources">Add Resource</Link>
           </div>
         </div>
 
@@ -104,12 +103,6 @@ class App extends Component {
             <Route path="/sponsors/:id" render={() => <Sponsor />} />
             <Route exact path="/resources" render={() =>
               <Listings
-                listings={this.state.listings}
-              />}
-            />
-            <Route exact path="/resources/add" render={(props) =>
-              <Listings
-                autoForm={true}
                 listings={this.state.listings}
               />}
             />

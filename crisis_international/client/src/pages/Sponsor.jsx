@@ -1,35 +1,19 @@
+// React
 import React, { Component } from 'react'
-import { Link, Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 // Components
 import Hero from '../components/Hero'
-import Subheader from '../components/Subheader'
-import Listing from './Listing'
-import Disclaimer from '../components/Disclaimer'
 
 // Forms
-import CreateListingForm from '../components/forms/CreateListingForm'
-import CreateSposorForm from '../components/forms/CreateSponsorForm'
-import EditListingForm from '../components/forms/EditListingForm'
 import EditSponsorForm from '../components/forms/EditSponsorForm'
-import LoginForm from '../components/forms/LoginForm'
 
 // API Functions
 import {
-  createSponsor,
-  indexSponsors,
   showSponsor,
   updateSponsor,
   destroySponsor,
 } from '../services/sponsor'
-
-import {
-  createListing,
-  indexListings,
-  showListing,
-  updateListing,
-  destroyListing
-} from '../services/listing'
 
 // Assets
 import Logo from '../assets/graphics/CI-Wordmark-White.png'
@@ -111,6 +95,11 @@ class Sponsor extends Component {
           description={this.state.sponsor.sponsor_desc}
           helper={this.state.helper}
         />
+        <div className="sponsor-info">
+          <a href={this.state.sponsor.sponsor_website} target="_blank">Website</a>
+          <p>Contact: {this.state.sponsor.sponsor_phone}</p>
+          <p>Location: {this.state.sponsor.sponsor_country}</p>
+        </div>
         <div className="sponsors-form">
           {!this.state.hideFormButton &&
             <button
