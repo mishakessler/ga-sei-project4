@@ -1,5 +1,5 @@
 sponsor1 = Sponsor.create({
-    sponsor_name: "National Suicide Prevention Lifeline", 
+    sponsor_name: "The National Suicide Prevention Lifeline", 
     sponsor_email: "founder@example.com",
     password_digest: "thisismypassworddigest",
     sponsor_tagline: "The premier lifeline in the United States.",
@@ -12,7 +12,7 @@ sponsor1 = Sponsor.create({
   })
 
 sponsor2 = Sponsor.create({
-    sponsor_name: "Crisis Text Line", 
+    sponsor_name: "The Crisis Text Line", 
     sponsor_email: "staff@example.com",
     password_digest: "thisismypassworddigest",
     sponsor_tagline: "The premier textline in the United States.",
@@ -40,7 +40,7 @@ sponsor3 = Sponsor.create({
 listing1 = Listing.create({
   listing_name: "National Suicide Prevention Lifeline", 
   listing_tagline: "The premier lifeline in the United States.",
-  listing_desc: "The national suicide prevention lifeline is the premier lifeline in the United States, welcoming calls 24/7 for anyone in need.",
+  listing_desc: "The National Suicide Prevention Lifeline is the premier lifeline in the United States, welcoming calls 24/7 for anyone in need.",
   listing_industry: "Suicide Prevention",
   listing_category: "Hotline",
   listing_url_to_img: "https://imgur.com/KwVcfVE.png",
@@ -70,8 +70,8 @@ listing2 = Listing.create({
 
 listing3 = Listing.create({
   listing_name: "The Crisis Text Line", 
-  listing_tagline: "The premier lifeline in the United States.",
-  listing_desc: "The national suicide prevention lifeline is the premier lifeline in the United States, welcoming calls 24/7 for anyone in need.",
+  listing_tagline: "The foremost text-based crisis service in the United States.",
+  listing_desc: "The Crisis Text Line is the first 24/7 crisis text line offering assistance via text message at all times of the day or night.",
   listing_industry: "Suicide Prevention",
   listing_category: "Textline",
   listing_url_to_img: "https://imgur.com/M3VqjRZ.png",
@@ -86,7 +86,7 @@ listing3 = Listing.create({
 listing4 = Listing.create({
   listing_name: "The Trevor Lifeline", 
   listing_tagline: "The premier lifeline for LGBTQ youth in the USA.",
-  listing_desc: "The trevor project is a crisis hotline for .",
+  listing_desc: "The trevor project is a crisis hotline for LGBTQ and questioning young adults and allies.",
   listing_industry: "Suicide Prevention",
   listing_category: "Hotline",
   listing_url_to_img: "https://imgur.com/KwVcfVE.png",

@@ -29,7 +29,7 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing = Listing.find(params[:id])
-    @book.destroy
+    @listing.destroy
     head 204
   end
 
