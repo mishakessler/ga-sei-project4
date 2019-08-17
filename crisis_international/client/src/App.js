@@ -22,27 +22,15 @@ import Sponsor from './pages/Sponsor'
 import Disclaimer from './components/Disclaimer'
 
 // Forms
-import CreateListingForm from './components/forms/CreateListingForm'
-import CreateSposorForm from './components/forms/CreateSponsorForm'
-import EditListingForm from './components/forms/EditListingForm'
-import EditSponsorForm from './components/forms/EditSponsorForm'
 import LoginForm from './components/forms/LoginForm'
 
 // API Functions
 import {
-  createSponsor,
   indexSponsors,
-  showSponsor,
-  updateSponsor,
-  destroySponsor,
 } from './services/sponsor'
 
 import {
-  createListing,
   indexListings,
-  showListing,
-  updateListing,
-  destroyListing
 } from './services/listing'
 
 // Stylesheet
