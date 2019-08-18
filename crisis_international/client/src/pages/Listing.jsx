@@ -94,15 +94,21 @@ class Listing extends Component {
           image={this.state.listing.listing_url_to_img}
           title={this.state.listing.listing_name}
           tagline={this.state.listing.listing_tagline}
-          description={this.state.listing.listing_desc}
           helper={this.state.helper}
         />
-        <div className="listing-info">
-          <a href={this.state.listing.listing_website} target="_blank">Website</a>
-          <p>Category: {this.state.listing.listing_category}</p>
-          <p>Contact: {this.state.listing.listing_phone}</p>
-          <p>Coverage: {this.state.listing.listing_coverage}</p>
+
+        <div className="listing-content">
+          <div className="listing-sidebar">
+
+          </div>
+          <div className="listing-detail">
+            <p>Category: {this.state.listing.listing_category}</p>
+            <p>Website: <a href={this.state.listing.listing_url} target="_blank" rel="noopener noreferrer">{this.state.listing.listing_name}</a></p>
+            <p>Contact: {this.state.listing.listing_phone}</p>
+            <p>Coverage: {this.state.listing.listing_coverage}</p>
+          </div>
         </div>
+
         <div className="listings-form">
           {!this.state.hideFormButton &&
             <button
