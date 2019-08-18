@@ -92,13 +92,17 @@ class Sponsor extends Component {
           type={this.state.type}
           title={this.state.sponsor.sponsor_name}
           tagline={this.state.sponsor.sponsor_tagline}
-          description={this.state.sponsor.sponsor_desc}
           helper={this.state.helper}
         />
-        <div className="sponsor-info">
-          <a href={this.state.sponsor.sponsor_website} target="_blank">Website</a>
-          <p>Contact: {this.state.sponsor.sponsor_phone}</p>
+        <div className="sponsor-sidebar">
+          <img src={this.state.sponsor.sponsor_url_to_logo} />
+          <p>Website: <a href={this.state.sponsor.sponsor_website} target="_blank" rel="noopener noreferrer">{this.state.sponsor.sponsor_name}</a></p>
           <p>Location: {this.state.sponsor.sponsor_country}</p>
+          <p>Language: {this.state.sponsor.sponsor_language}</p>
+          <p></p>
+        </div>
+        <div className="sponsor-description">
+          <p>{this.state.sponsor.sponsor_desc}</p>
         </div>
         <div className="sponsors-form">
           {!this.state.hideFormButton &&
