@@ -1,6 +1,11 @@
 // React
 import React, { Component } from 'react'
+
+// React Router
 import { Link, withRouter } from 'react-router-dom';
+
+// React Semantic
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'
@@ -84,12 +89,27 @@ class Sponsors extends Component {
     return (
       <>
         <Hero
+          className="sponsors-hero"
           type={this.state.type}
           title={this.state.title}
           tagline={this.state.tagline}
           description={this.state.description}
           helper={this.state.helper}
         />
+        <div className="sponsors-form">
+          {!this.state.hideFormButton &&
+            <button
+              onClick={this.showForm} >Add Sponsor</button>
+          }
+          {this.state.showForm &&
+            <CreateSponsorForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              successAlert={this.state.successAlert}
+              errorAlert={this.state.errorAlert}
+              hideForm={this.hideForm}
+            />}
+        </div>
         <div className="page sponsors-page box-shadow">
           {this.props.sponsors &&
             <div className="index sponsors-index">
@@ -103,20 +123,6 @@ class Sponsors extends Component {
               )}
             </div>
           }
-          <div className="sponsors-form">
-            {!this.state.hideFormButton &&
-              <button
-                onClick={this.showForm} >Add Sponsor</button>
-            }
-            {this.state.showForm &&
-              <CreateSponsorForm
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                successAlert={this.state.successAlert}
-                errorAlert={this.state.errorAlert}
-                hideForm={this.hideForm}
-              />}
-          </div>
         </div>
       </>
     )

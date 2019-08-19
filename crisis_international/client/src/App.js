@@ -1,5 +1,7 @@
 // React
 import React, { Component } from 'react'
+
+// React Router
 import {
   Link,
   Route,
@@ -8,9 +10,12 @@ import {
   Redirect
 } from 'react-router-dom';
 
-// Semantic
+// React Semantic
 import {
-  Dropdown, DropdownMenu
+  Dropdown,
+  DropdownMenu,
+  Icon,
+  Modal,
 } from 'semantic-ui-react'
 
 // Pages
@@ -19,15 +24,14 @@ import Directory from './pages/Directory'
 import Listings from './pages/Listings'
 import Sponsors from './pages/Sponsors'
 import Articles from './pages/Articles'
-import Contact from './pages/Contact'
 
 // Components
 import Listing from './pages/Listing'
 import Sponsor from './pages/Sponsor'
-import Disclaimer from './components/Disclaimer'
 
 // Forms
 import LoginForm from './components/forms/LoginForm'
+
 
 // API Functions
 import {
@@ -65,7 +69,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <div className="header">
+        <div className="page-header">
           <div className="header-logo">
             <Link to="/"><img src={Logo}></img></Link>
           </div>
@@ -75,13 +79,22 @@ class App extends Component {
             <Link to="/sponsors" className="smooth">Sponsors</Link>
             <Link to="/directory" className="smooth">Directory</Link>
             <Link to="/" className="cta smooth">Dashboard</Link>
-            <Dropdown placeholder='Add New...' clearable search selection >
+            {/* <Dropdown placeholder='Add New...' clearable search selection >
               <DropdownMenu>
-                <Dropdown.Item icon='attention' text='Resource' />
-                <Dropdown.Item icon='comment' text='Article' />
-                <Dropdown.Item icon='conversation' text='Sponsor' />
+                <Dropdown.Item
+                  icon='archive'
+                  text='Resource'
+                />
+                <Dropdown.Item
+                  icon='sticky note'
+                  text='Article'
+                />
+                <Dropdown.Item
+                  icon='address card'
+                  text='Sponsor'
+                />
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
           </div>
         </div >
 

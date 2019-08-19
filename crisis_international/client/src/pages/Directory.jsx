@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 
 // Components
 import Hero from '../components/Hero'
-import Subheader from '../components/Subheader'
 
 // Forms
 
@@ -19,8 +18,8 @@ class Directory extends Component {
 
     this.state = {
       type: "page",
-      title: "The Crisis International Resource Directory",
-      tagline: "Find the resources you need, when you need them most.",
+      title: "View All Members",
+      tagline: "A directory of Crisis International users who represent Sponsors and/or work in crisis prevention, intervention, and postvention.",
       description: null,
       helper: null,
     }
@@ -30,6 +29,7 @@ class Directory extends Component {
     return (
       <>
         <Hero
+          className="directory-hero"
           type={this.state.type}
           title={this.state.title}
           tagline={this.state.tagline}
@@ -37,6 +37,7 @@ class Directory extends Component {
           helper={this.state.helper}
         />
         <div className="page directory-page">
+          <p>The Crisis International Directory is under construction. Please check back later or Contact Us to get involved.</p>
         </div>
       </>
     )

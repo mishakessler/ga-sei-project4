@@ -29,6 +29,7 @@ class Contact extends Component {
     return (
       <>
         <Hero
+          className="contact-hero"
           type={this.state.type}
           title={this.state.title}
           tagline={this.state.tagline}
