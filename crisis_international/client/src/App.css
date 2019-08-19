@@ -145,18 +145,16 @@ p, a {
 .header-logo {
   float: left;
   text-align: left;
-  width: 40%;
 }
 
 .header-logo img {
-  max-height: 70px;
+  max-height: 60px;
   margin: 0;
 }
 
 .header-nav {
-  float: right;
-  width: 60%;
-  margin: 20px auto;
+  text-align: right;
+  margin: 10px auto;
 }
 
 .header-nav a {
@@ -167,9 +165,15 @@ p, a {
   text-transform: uppercase;
 }
 
-.dropdown {
-  background-color: none;
-  border-radius:
+.ui.selection.dropdown {
+  margin-left: 20px;
+  background-color: unset;
+  border: none;
+  color: white;
+  padding: 12px 15px;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .footer {
