@@ -167,7 +167,7 @@ p, a {
   text-transform: uppercase;
 }
 
-.dropdown {
+.ui.search.selection.dropdown>input.search {
   background-color: none;
   border-radius:
 }
