@@ -96,7 +96,7 @@ class Listing extends Component {
           tagline={this.state.listing.listing_tagline}
           helper={this.state.helper}
         />
-        <div className="page listing-page">
+        <div className="page listing-page box-shadow">
           <div className="listing-content">
             <div className="listing-sidebar">
 

@@ -70,11 +70,11 @@ class App extends Component {
             <Link to="/"><img src={Logo}></img></Link>
           </div>
           <div className="header-nav">
-            <Link to="/resources">Resources</Link>
-            <Link to="/articles">Articles</Link>
-            <Link to="/sponsors">Sponsors</Link>
-            <Link to="/directory">Directory</Link>
-            <Link to="/">Dashboard</Link>
+            <Link to="/resources" className="smooth">Resources</Link>
+            <Link to="/articles" className="smooth">Articles</Link>
+            <Link to="/sponsors" className="smooth">Sponsors</Link>
+            <Link to="/directory" className="smooth">Directory</Link>
+            <Link to="/" className="cta smooth">Dashboard</Link>
             <Dropdown placeholder='Add New...' clearable search selection >
               <DropdownMenu>
                 <Dropdown.Item icon='attention' text='Resource' />
@@ -107,14 +107,14 @@ class App extends Component {
 
         <div className="footer">
           <div className="footer-nav">
-            <Link to="/">Home</Link>
-            <Link to="/resources">Resources</Link>
-            <Link to="/articles">Articles</Link>
-            <Link to="/sponsors">Sponsors</Link>
-            <Link to="/directory">Directory</Link>
-            <Link to="https://beta.crisisinternational.org/about">About</Link>
-            <Link to="https://beta.crisisinternational.org/news">News</Link>
-            <Link to="https://beta.crisisinternational.org/contact">Contact</Link>
+            <Link to="/" className="smooth">Home</Link>
+            <Link to="/resources" className="smooth">Resources</Link>
+            <Link to="/articles" className="smooth">Articles</Link>
+            <Link to="/sponsors" className="smooth">Sponsors</Link>
+            <Link to="/directory" className="smooth">Directory</Link>
+            <Link to="https://beta.crisisinternational.org/about" className="smooth" target="_blank">About</Link>
+            <Link to="https://beta.crisisinternational.org/news" className="smooth" target="_blank">News</Link>
+            <Link to="https://beta.crisisinternational.org/contact" className="smooth" target="_blank">Contact</Link>
           </div>
           <div className="footer-info">
             <p>Crisis International was conceived, designed, and developed by Misha Kessler.</p>

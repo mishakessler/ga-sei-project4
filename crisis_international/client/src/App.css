@@ -130,6 +130,18 @@ p, a {
   text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.5);
 }
 
+.cta {
+  background-color: white;
+  color: #0F1626 !important;
+  font-weight: 500;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.cta:hover {
+  background-color: unset;
+  color: white !important;
+}
 
 /***************************************************/
 /******************** NAVIGATION *******************/
@@ -148,21 +160,28 @@ p, a {
 }
 
 .header-logo img {
-  max-height: 60px;
+  max-height: 50px;
   margin: 0;
 }
 
 .header-nav {
+  float: right;
   text-align: right;
-  margin: 10px auto;
+  width: 60%;
+  margin: 8px auto;
 }
 
 .header-nav a {
   color: white;
+  margin-left: 15px;
   padding: 12px 15px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.header-nav a:hover{
+  color: #3dbb9f;
 }
 
 .ui.selection.dropdown {
@@ -171,13 +190,34 @@ p, a {
   border: none;
   color: white;
   padding: 12px 15px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.ui.selection.active.dropdown .menu {
+  border-radius: 0;
+}
+
+.ui.dropdown .menu>.item {
+  padding: 12px 15px;
+  font-size: 1em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.ui.search.dropdown.active>input.search, .ui.search.dropdown.visible>input.search {
+  color: white;
   text-transform: uppercase;
 }
 
 .footer {
   color: white;
+  padding-bottom: 40px;
+}
+
+.footer-nav {
+  margin: 10px auto;
 }
 
 .footer-nav a {
@@ -185,6 +225,22 @@ p, a {
   padding: 8px 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.footer-nav a:hover{
+  color: #3dbb9f;
+}
+
+.footer-socials {
+  margin: 15px auto;
+}
+
+.footer-info {
+  margin: 15px auto;
+}
+
+.footer-copyright {
+  margin: 15px auto;
 }
 
 /****************** Pseudo Classes *****************/
@@ -199,12 +255,14 @@ p, a {
 /***************************************************/
 
 .hero {
+  min-height: 20vh;
   color: white;
 }
 
 .page {
   background-color: #e1eaed;
-  margin: 50px;
+  max-width: 1280px;
+  margin: 25px auto;
   padding: 25px;
   border-radius: 10px;
 }

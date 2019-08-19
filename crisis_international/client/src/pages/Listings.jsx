@@ -92,11 +92,11 @@ class Listings extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="page listings-page">
+        <div className="page listings-page box-shadow">
           <div className="index listings-index">
             {this.props.listings.map(listing =>
               <div key={listing.id}>
-                <h2>{listing.listing_name}</h2>
+                <h3>{listing.listing_name}</h3>
                 <p>{listing.listing_tagline}</p>
                 <Link to={`/resources/${listing.id}`}>View Resource</Link>
               </div>

@@ -94,7 +94,7 @@ class Sponsor extends Component {
           tagline={this.state.sponsor.sponsor_tagline}
           helper={this.state.helper}
         />
-        <div className="page sponsor-page">
+        <div className="page sponsor-page box-shadow">
           <div className="sponsor-content">
             <div className="sponsor-sidebar">
               <img src={this.state.sponsor.sponsor_url_to_logo} />
