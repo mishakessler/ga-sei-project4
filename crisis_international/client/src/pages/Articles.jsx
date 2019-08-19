@@ -18,7 +18,7 @@ class About extends Component {
 
     this.state = {
       type: "page",
-      title: "About Crisis International",
+      title: "The Crisis International Knowledge Base",
       tagline: null,
       description: null,
       helper: null,
@@ -26,7 +26,7 @@ class About extends Component {
   }
   render() {
     return (
-      <div className="page about-page">
+      <>
         <Hero
           type={this.state.type}
           title={this.state.title}
@@ -34,7 +34,10 @@ class About extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-      </div>
+        <div className="page about-page">
+
+        </div>
+      </>
     )
   }
 }

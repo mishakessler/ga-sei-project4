@@ -27,7 +27,7 @@ class Contact extends Component {
 
   render() {
     return (
-      <div className="page contact-page" >
+      <>
         <Hero
           type={this.state.type}
           title={this.state.title}
@@ -35,7 +35,9 @@ class Contact extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-      </div>
+        <div className="page contact-page" >
+        </div>
+      </>
     )
   }
 }

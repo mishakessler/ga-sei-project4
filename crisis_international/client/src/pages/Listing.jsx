@@ -88,7 +88,7 @@ class Listing extends Component {
 
   render() {
     return (
-      <div className="page listing-page">
+      <>
         <Hero
           type={this.state.type}
           image={this.state.listing.listing_url_to_img}
@@ -96,33 +96,35 @@ class Listing extends Component {
           tagline={this.state.listing.listing_tagline}
           helper={this.state.helper}
         />
-        <div className="listing-content">
-          <div className="listing-sidebar">
+        <div className="page listing-page">
+          <div className="listing-content">
+            <div className="listing-sidebar">
 
+            </div>
+            <div className="listing-detail">
+              <p>Category: {this.state.listing.listing_category}</p>
+              <p>Website: <a href={this.state.listing.listing_url} target="_blank" rel="noopener noreferrer">{this.state.listing.listing_name}</a></p>
+              <p>Contact: {this.state.listing.listing_phone}</p>
+              <p>Coverage: {this.state.listing.listing_coverage}</p>
+            </div>
           </div>
-          <div className="listing-detail">
-            <p>Category: {this.state.listing.listing_category}</p>
-            <p>Website: <a href={this.state.listing.listing_url} target="_blank" rel="noopener noreferrer">{this.state.listing.listing_name}</a></p>
-            <p>Contact: {this.state.listing.listing_phone}</p>
-            <p>Coverage: {this.state.listing.listing_coverage}</p>
+
+          <div className="listings-form">
+            {!this.state.hideFormButton &&
+              <button
+                onClick={this.showForm} >Update Resource</button>
+            }
+            {this.state.showForm && <EditListingForm
+              listing_name={this.state.listing.listing_name}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              successAlert={this.state.successAlert}
+              errorAlert={this.state.errorAlert}
+              hideForm={this.hideForm}
+            />}
           </div>
         </div>
-
-        <div className="listings-form">
-          {!this.state.hideFormButton &&
-            <button
-              onClick={this.showForm} >Update Resource</button>
-          }
-          {this.state.showForm && <EditListingForm
-            listing_name={this.state.listing.listing_name}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            successAlert={this.state.successAlert}
-            errorAlert={this.state.errorAlert}
-            hideForm={this.hideForm}
-          />}
-        </div>
-      </div>
+      </>
     )
   }
 }
