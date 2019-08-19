@@ -20,6 +20,7 @@ import {
 
 // Assets
 import Logo from '../assets/graphics/CI-Wordmark-White.png'
+import PostImage from '../assets/images/ft-listing.jpg'
 
 class Listings extends Component {
   constructor(props) {

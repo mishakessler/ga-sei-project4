@@ -277,12 +277,12 @@ p, a {
   max-width: 800px;
 }
 
-.listings-cards {
+.listings-cards, .sponsors-cards {
   display: inline-flex;
   flex-wrap: wrap;
 }
 
-.listings-cards .ui.cards {
+.listings-cards .ui.cards, .sponsors-cards .ui.cards {
   margin: unset;
 }
 

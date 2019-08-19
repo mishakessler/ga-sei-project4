@@ -20,6 +20,8 @@ import {
 
 // Assets
 import Logo from '../assets/graphics/CI-Wordmark-White.png'
+import PostImage from '../assets/images/ft-listing.jpg'
+
 
 class Sponsors extends Component {
   constructor(props) {
@@ -98,8 +100,13 @@ class Sponsors extends Component {
         />
         <div className="sponsors-form">
           {!this.state.hideFormButton &&
-            <button
-              onClick={this.showForm} >Add Sponsor</button>
+            <Button
+              animated='fade'
+              size='large'
+              onClick={this.showForm} >
+              <Button.Content visible>Add Your Organization</Button.Content>
+              <Button.Content hidden>Join Our Mission</Button.Content>
+            </Button>
           }
           {this.state.showForm &&
             <CreateSponsorForm
@@ -114,11 +121,31 @@ class Sponsors extends Component {
           {this.props.sponsors &&
             <div className="index sponsors-index">
               {this.props.sponsors.map(sponsor =>
-                <div key={sponsor.id}>
-                  <h3>{sponsor.sponsor_name}</h3>
-                  <p>{sponsor.sponsor_tagline}</p>
-                  <p><a href={sponsor.sponsor_website}>{sponsor.sponsor_website}</a></p>
-                  <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
+                <div key={sponsor.id} className="sponsors-cards">
+                  <Card.Group>
+                    <Card
+                      href={`/sponsors/${sponsor.id}`}
+                      color='blue'
+                    >
+                      <Image src={PostImage} wrapped ui={true} />
+                      <Card.Content>
+                        <Card.Header>{sponsor.sponsor_name}</Card.Header>
+                        <Card.Meta>
+                          {sponsor.sponsor_tagline}
+                        </Card.Meta>
+                        <Card.Description>
+                          {sponsor.sponsor_desc}
+                        </Card.Description>
+                      </Card.Content>
+                      <Card.Content extra>
+                        <a>
+                          <Icon name='country' />
+                          {sponsor.sponsor_country}
+                        </a>
+
+                      </Card.Content>
+                    </Card>
+                  </Card.Group>
                 </div>
               )}
             </div>
