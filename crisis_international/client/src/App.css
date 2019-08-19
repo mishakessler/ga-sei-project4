@@ -1,9 +1,93 @@
 /***************************************************/
-/********************** Global *********************/
+/********************** GLOBAL *********************/
 /***************************************************/
+
+/********************** Resets *********************/
+
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: 
+  linear-gradient(
+    rgba(59, 104, 119, 0.8), 
+    rgba(21, 37, 43, 0.8)
+  ),
+  url(./assets/images/home-banner.jpg);
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+
+}
 
 .app {
   text-align: center;
+}
+
+/***************** Headers & Fonts *****************/
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+p, a {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+
+/****************** Accent Colors ******************/
+
+.azureish {
+  color: #e1eaed;
+}
+
+.keppel {
+  color: #3dbb9f;
+}
+
+.sea {
+  color: #28afb0;
+}
+
+.ming {
+  color: #3b6877;
+}
+
+.gunmetal {
+  color: #0F1626;
+}
+
+
+/****************** Alert Messages *****************/
+
+.success-alert {
+  color: green;
+  font-weight: bolder;
 }
 
 .error-alert {
@@ -11,14 +95,119 @@
   font-weight: bolder;
 }
 
-/***************************************************/
-/********************** Pages **********************/
-/***************************************************/
+
+/****************** Pseudo Classes *****************/
+
+.clicked {
+  cursor: pointer;
+}
+
+.clicked:active {
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+       box-shadow: inset 0px 0px 5px #c1c1c1;
+}
+
+.smooth {
+  transition: ease-in-out .3s;
+  -moz-transition: ease-in-out .3s;
+  -o-transition: ease-in-out .3s;
+  -webkit-transition: ease-in-out .3s;
+}
+
+.smooth:hover {
+  transition: ease-in-out .3s;
+  -moz-transition: ease-in-out .3s;
+  -o-transition: ease-in-out .3s;
+  -webkit-transition: ease-in-out .3s;
+}
+
+.box-shadow {
+  box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow {
+  text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.5);
+}
 
 
+/***************************************************/
+/******************** NAVIGATION *******************/
+/***************************************************/
+
+.header {
+  display: inline-block;
+  height: 90px;
+  width: 100vw;
+  padding: 20px 20px;
+}
+
+.header-logo {
+  float: left;
+  text-align: left;
+  width: 40%;
+}
+
+.header-logo img {
+  max-height: 70px;
+  margin: 0;
+}
+
+.header-nav {
+  float: right;
+  width: 60%;
+  margin: 20px auto;
+}
+
+.header-nav a {
+  color: white;
+  padding: 12px 15px;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dropdown {
+  background-color: none;
+  border-radius:
+}
+
+.footer {
+  color: white;
+}
+
+.footer-nav a {
+  color: white;
+  padding: 8px 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/****************** Pseudo Classes *****************/
+
+.header-nav a:hover {
+
+}
+
 
 /***************************************************/
-/******************* Components ********************/
+/********************** PAGES **********************/
+/***************************************************/
+
+.hero {
+  color: white;
+}
+
+.page {
+  background-color: #e1eaed;
+  margin: 50px;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+
+/***************************************************/
+/******************* COMPONENTS ********************/
 /***************************************************/
 
 

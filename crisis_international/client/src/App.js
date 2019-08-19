@@ -37,7 +37,7 @@ import {
 import './App.css';
 
 // Assets
-import Logo from './assets/graphics/CI-Wordmark-Keppel.png'
+import Logo from './assets/graphics/CI-Wordmark-White.png'
 
 class App extends Component {
   constructor(props) {
@@ -61,9 +61,6 @@ class App extends Component {
     return (
       <div className="app">
         <div className="header">
-          <div className="header-logo">
-            <Link to="/"><img src={Logo}></img></Link>
-          </div>
           <div className="header-nav">
             <Link to="/">Home</Link>
             <Link to="/directory">Directory</Link>
@@ -72,6 +69,9 @@ class App extends Component {
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/resources">Add Resource</Link>
+          </div>
+          <div className="header-logo">
+            <Link to="/"><img src={Logo}></img></Link>
           </div>
         </div>
 
