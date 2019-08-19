@@ -90,12 +90,12 @@ class Sponsors extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="page sponsors-page">
+        <div className="page sponsors-page box-shadow">
           {this.props.sponsors &&
             <div className="index sponsors-index">
               {this.props.sponsors.map(sponsor =>
                 <div key={sponsor.id}>
-                  <h2>{sponsor.sponsor_name}</h2>
+                  <h3>{sponsor.sponsor_name}</h3>
                   <p>{sponsor.sponsor_tagline}</p>
                   <p><a href={sponsor.sponsor_website}>{sponsor.sponsor_website}</a></p>
                   <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>

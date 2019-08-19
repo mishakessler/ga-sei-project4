@@ -35,7 +35,7 @@ class Contact extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="page contact-page" >
+        <div className="page contact-page box-shadow" >
         </div>
       </>
     )

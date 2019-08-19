@@ -19,10 +19,10 @@ class Landing extends Component {
 
     this.state = {
       type: "page",
-      title: "Welcome to Crisis International",
-      tagline: "Are you, or is someone you know, in crisis?",
-      description: "In the midst of a crisis, we often don't know where to go for help. Let's change that.",
-      helper: "Not sure where to start? View crisis resources by visiting our directory, browsing popular categories, or learn more about Crisis International below.",
+      title: "Welcome to Crisis International Enterprise",
+      tagline: "",
+      description: "Log in below to access your Enterprise dashboard.",
+      helper: "",
     }
   }
 
@@ -36,7 +36,7 @@ class Landing extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="page landing-page">
+        <div className="page landing-page box-shadow">
 
         </div>
       </>
