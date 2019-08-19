@@ -167,9 +167,14 @@ p, a {
   text-transform: uppercase;
 }
 
-.ui.search.selection.dropdown>input.search {
-  background-color: none;
-  border-radius:
+.ui.selection.dropdown {
+  background-color: unset;
+  border: none;
+  color: white;
+  padding: 12px 15px;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .footer {
