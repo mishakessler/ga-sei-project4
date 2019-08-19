@@ -1,6 +1,11 @@
 // React
 import React, { Component } from 'react'
+
+// React Router
 import { Link, withRouter } from 'react-router-dom';
+
+// React Semantic
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'
@@ -86,35 +91,62 @@ class Listings extends Component {
     return (
       <>
         <Hero
+          className="listings-hero"
           type={this.state.type}
           title={this.state.title}
           tagline={this.state.tagline}
           description={this.state.description}
           helper={this.state.helper}
         />
+        <div className="listings-form">
+          {!this.state.hideFormButton &&
+            <Button
+              animated='fade'
+              size='large'
+              onClick={this.showForm} >
+              <Button.Content visible>Add A Resource</Button.Content>
+              <Button.Content hidden>Save Lives</Button.Content>
+            </Button>
+          }
+          {this.state.showForm &&
+            <CreateListingForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              successAlert={this.state.successAlert}
+              errorAlert={this.state.errorAlert}
+              hideForm={this.hideForm}
+            />}
+        </div>
         <div className="page listings-page box-shadow">
           <div className="index listings-index">
             {this.props.listings.map(listing =>
-              <div key={listing.id}>
-                <h3>{listing.listing_name}</h3>
-                <p>{listing.listing_tagline}</p>
-                <Link to={`/resources/${listing.id}`}>View Resource</Link>
+              <div key={listing.id} className="listings-cards">
+                <Card.Group>
+                  <Card
+                    href={`/resources/${listing.id}`}
+                    color='teal'
+                  >
+                    <Image src={listing.listing_url_to_img} wrapped ui={true} />
+                    <Card.Content>
+                      <Card.Header>{listing.listing_name}</Card.Header>
+                      <Card.Meta>
+                        {listing.listing_country}
+                      </Card.Meta>
+                      <Card.Description>
+                        {listing.listing_tagline}
+                      </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+                      <a>
+                        <Icon name='clock' />
+                        {listing.listing_hours}
+                      </a>
+
+                    </Card.Content>
+                  </Card>
+                </Card.Group>
               </div>
             )}
-          </div>
-          <div className="listings-form">
-            {!this.state.hideFormButton &&
-              <button
-                onClick={this.showForm}>Add Resource</button>
-            }
-            {this.state.showForm &&
-              <CreateListingForm
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                successAlert={this.state.successAlert}
-                errorAlert={this.state.errorAlert}
-                hideForm={this.hideForm}
-              />}
           </div>
         </div>
       </>

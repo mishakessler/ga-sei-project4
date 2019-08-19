@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 
 // Components
 import Hero from '../components/Hero'
-import Subheader from '../components/Subheader'
 
 // Forms
 
@@ -21,8 +20,8 @@ class Landing extends Component {
       type: "page",
       title: "Welcome to Crisis International Enterprise",
       tagline: "",
-      description: "Log in below to access your Enterprise dashboard.",
-      helper: "",
+      description: "Crisis International is a comprehensive resource directory, knowledge base, and professional network for crisis prevention, intervention, and postvention needs. By leveraging international expertise, encouraging engagement from individuals and organizations in the field, and implementing modern improvements in user-oriented design, Crisis International is developing a financially-sustainable, globally-reliable platform in the pursuit of its foremost priority– saving precious minutes for any individual who needs help in a suicidal crisis.",
+      helper: "Log in below or Contact Us to get started.",
     }
   }
 
@@ -30,6 +29,7 @@ class Landing extends Component {
     return (
       <>
         <Hero
+          className="landing-hero"
           type={this.state.type}
           title={this.state.title}
           tagline={this.state.tagline}
