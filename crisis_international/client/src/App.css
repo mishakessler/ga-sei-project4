@@ -15,8 +15,8 @@ body {
   padding: 0;
   background: 
   linear-gradient(
-    rgba(59, 104, 119, 0.8), 
-    rgba(21, 37, 43, 0.8)
+    rgba(59, 104, 119, 0.5), 
+    rgba(21, 37, 43, 0.9)
   ),
   url(./assets/images/home-banner.jpg);
   background-size: cover;
@@ -46,7 +46,7 @@ h2 {
 h3 {
   font-family: 'Raleway', sans-serif;
   font-size: 2em;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 h4, h5, h6 {
@@ -147,7 +147,7 @@ p, a {
 /******************** NAVIGATION *******************/
 /***************************************************/
 
-.header {
+.page-header {
   display: inline-block;
   height: 90px;
   width: 100vw;
@@ -180,7 +180,7 @@ p, a {
   text-transform: uppercase;
 }
 
-.header-nav a:hover{
+.header-nav a:active-page{
   color: #3dbb9f;
 }
 
@@ -188,7 +188,7 @@ p, a {
   margin-left: 20px;
   background-color: unset;
   border: none;
-  color: white;
+  color: white !important;
   padding: 12px 15px;
   font-size: 1.1em;
   letter-spacing: 1px;
@@ -257,34 +257,39 @@ p, a {
 .hero {
   min-height: 20vh;
   color: white;
+  max-width: 1020px;
+  margin: 10px auto;
+}
+
+.landing-hero {
+  max-width: 800px;
 }
 
 .page {
   background-color: #e1eaed;
   max-width: 1280px;
-  margin: 25px auto;
+  margin: 50px auto;
   padding: 25px;
   border-radius: 10px;
+}
+
+.landing-page {
+  max-width: 800px;
+}
+
+.listings-cards {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.listings-cards .ui.cards {
+  margin: unset;
 }
 
 
 /***************************************************/
 /******************* COMPONENTS ********************/
 /***************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
