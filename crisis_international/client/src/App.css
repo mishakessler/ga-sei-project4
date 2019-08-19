@@ -13,6 +13,16 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background: 
+  linear-gradient(
+    rgba(59, 104, 119, 0.8), 
+    rgba(21, 37, 43, 0.8)
+  ),
+  url(./assets/images/home-banner.jpg);
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+
 }
 
 .app {
@@ -126,24 +136,26 @@ p, a {
 /***************************************************/
 
 .header {
-  display: block;
+  display: inline-block;
   height: 90px;
   width: 100vw;
   padding: 20px 20px;
 }
 
 .header-logo {
-  margin: 30px auto;
+  float: left;
+  text-align: left;
+  width: 40%;
 }
 
 .header-logo img {
   max-height: 70px;
-  margin: 30px auto;
+  margin: 0;
 }
 
 .header-nav {
-  width: 100%;
-  position: fixed;
+  float: right;
+  width: 60%;
   margin: 20px auto;
 }
 
@@ -151,6 +163,22 @@ p, a {
   color: white;
   padding: 12px 15px;
   font-size: 1.2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dropdown {
+  background-color: none;
+  border-radius:
+}
+
+.footer {
+  color: white;
+}
+
+.footer-nav a {
+  color: white;
+  padding: 8px 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -167,18 +195,14 @@ p, a {
 /***************************************************/
 
 .hero {
-  min-height: 80vh;
-  margin-top: -90px;
-  padding-top: 130px;
-  background: 
-    linear-gradient(
-      rgba(59, 104, 119, 0.8), 
-      rgba(21, 37, 43, 0.8)
-    ),
-    url(./assets/images/home-banner.jpg);
+  color: white;
+}
 
-  background-position: top center;
-  background-size: cover;
+.page {
+  background-color: #e1eaed;
+  margin: 50px;
+  padding: 25px;
+  border-radius: 10px;
 }
 
 
