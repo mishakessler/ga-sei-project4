@@ -28,7 +28,7 @@ class Landing extends Component {
 
   render() {
     return (
-      <div className="page landing-page">
+      <>
         <Hero
           type={this.state.type}
           title={this.state.title}
@@ -36,8 +36,10 @@ class Landing extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
+        <div className="page landing-page">
 
-      </div>
+        </div>
+      </>
     )
   }
 }
