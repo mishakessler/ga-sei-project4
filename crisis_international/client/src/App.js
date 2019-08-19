@@ -108,8 +108,10 @@ class App extends Component {
         <div className="footer">
           <div className="footer-nav">
             <Link to="/">Home</Link>
-            <Link to="/sponsors">Sponsors</Link>
             <Link to="/resources">Resources</Link>
+            <Link to="/articles">Articles</Link>
+            <Link to="/sponsors">Sponsors</Link>
+            <Link to="/directory">Directory</Link>
             <Link to="https://beta.crisisinternational.org/about">About</Link>
             <Link to="https://beta.crisisinternational.org/news">News</Link>
             <Link to="https://beta.crisisinternational.org/contact">Contact</Link>
