@@ -90,6 +90,7 @@ class Listing extends Component {
     return (
       <>
         <Hero
+          className="listing-hero"
           type={this.state.type}
           image={this.state.listing.listing_url_to_img}
           title={this.state.listing.listing_name}

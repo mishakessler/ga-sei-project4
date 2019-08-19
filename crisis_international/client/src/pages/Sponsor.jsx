@@ -89,6 +89,7 @@ class Sponsor extends Component {
     return (
       <>
         <Hero
+          className="sponsor-hero"
           type={this.state.type}
           title={this.state.sponsor.sponsor_name}
           tagline={this.state.sponsor.sponsor_tagline}
