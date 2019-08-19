@@ -6,10 +6,57 @@
   text-align: center;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.success-alert {
+  color: green;
+  font-weight: bolder;
+}
+
 .error-alert {
   color: red;
   font-weight: bolder;
 }
+
+
+/***************************************************/
+/******************** Navigation *******************/
+/***************************************************/
+
+.header {
+  display: block;
+  height: 90px;
+  width: 100vw;
+  padding: 10px 20px;
+}
+
+.header-logo {
+
+}
+
+.header-logo img {
+  max-height: 70px;
+  margin: 30px auto;
+}
+
+.header-nav {
+  width: 100%;
+  position: fixed;
+
+  margin: 0 auto;
+}
+
+.header-nav a {
+  padding: 8px 12px;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 
 /***************************************************/
 /********************** Pages **********************/
