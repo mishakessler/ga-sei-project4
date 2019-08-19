@@ -28,7 +28,7 @@ class Directory extends Component {
 
   render() {
     return (
-      <div className="page directory-page">
+      <>
         <Hero
           type={this.state.type}
           title={this.state.title}
@@ -36,27 +36,29 @@ class Directory extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="index directory-listings">
-          {this.props.listings.map(listing =>
-            <div key={listing.id}>
-              <h2>{listing.listing_name}</h2>
-              <p>{listing.listing_tagline}</p>
-              <Link to={`/resources/${listing.id}`}>View Resource</Link>
-            </div>
-          )}
-          <Link to="/resources">View All Resources</Link>
+        <div className="page directory-page">
+          <div className="index directory-listings">
+            {this.props.listings.map(listing =>
+              <div key={listing.id}>
+                <h2>{listing.listing_name}</h2>
+                <p>{listing.listing_tagline}</p>
+                <Link to={`/resources/${listing.id}`}>View Resource</Link>
+              </div>
+            )}
+            <Link to="/resources">View All Resources</Link>
+          </div>
+          <div className="index directory-sponsors">
+            {this.props.sponsors.map(sponsor =>
+              <div key={sponsor.id}>
+                <h2>{sponsor.sponsor_name}</h2>
+                <p>{sponsor.sponsor_tagline}</p>
+                <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
+              </div>
+            )}
+            <Link to="/sponsors">View All Sponsors</Link>
+          </div>
         </div>
-        <div className="index directory-sponsors">
-          {this.props.sponsors.map(sponsor =>
-            <div key={sponsor.id}>
-              <h2>{sponsor.sponsor_name}</h2>
-              <p>{sponsor.sponsor_tagline}</p>
-              <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
-            </div>
-          )}
-          <Link to="/sponsors">View All Sponsors</Link>
-        </div>
-      </div>
+      </>
     )
   }
 }

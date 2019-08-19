@@ -82,7 +82,7 @@ class Sponsors extends Component {
 
   render() {
     return (
-      <div className="page sponsors-page">
+      <>
         <Hero
           type={this.state.type}
           title={this.state.title}
@@ -90,34 +90,35 @@ class Sponsors extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        {this.props.sponsors &&
-          <div className="index sponsors-index">
-            {this.props.sponsors.map(sponsor =>
-              <div key={sponsor.id}>
-                <h2>{sponsor.sponsor_name}</h2>
-                <p>{sponsor.sponsor_tagline}</p>
-                <p><a href={sponsor.sponsor_website}>{sponsor.sponsor_website}</a></p>
-                <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
-              </div>
-            )}
-          </div>
-        }
-        <div className="sponsors-form">
-          {!this.state.hideFormButton &&
-            <button
-              onClick={this.showForm} >Add Sponsor</button>
+        <div className="page sponsors-page">
+          {this.props.sponsors &&
+            <div className="index sponsors-index">
+              {this.props.sponsors.map(sponsor =>
+                <div key={sponsor.id}>
+                  <h2>{sponsor.sponsor_name}</h2>
+                  <p>{sponsor.sponsor_tagline}</p>
+                  <p><a href={sponsor.sponsor_website}>{sponsor.sponsor_website}</a></p>
+                  <Link to={`/sponsors/${sponsor.id}`}>View Sponsor</Link>
+                </div>
+              )}
+            </div>
           }
-          {this.state.showForm &&
-            <CreateSponsorForm
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-              successAlert={this.state.successAlert}
-              errorAlert={this.state.errorAlert}
-              hideForm={this.hideForm}
-            />}
+          <div className="sponsors-form">
+            {!this.state.hideFormButton &&
+              <button
+                onClick={this.showForm} >Add Sponsor</button>
+            }
+            {this.state.showForm &&
+              <CreateSponsorForm
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                successAlert={this.state.successAlert}
+                errorAlert={this.state.errorAlert}
+                hideForm={this.hideForm}
+              />}
+          </div>
         </div>
-      </div>
-
+      </>
     )
   }
 }
