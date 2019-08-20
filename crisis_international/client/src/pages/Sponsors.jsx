@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom';
 
 // React Semantic
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Header, Card, Icon, Image, Button, Modal } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'
@@ -33,10 +33,13 @@ class Sponsors extends Component {
       tagline: null,
       description: null,
       helper: null,
-      sponsors: [],
-      showForm: false,
-      hideFormButton: false,
+
+      modalOpen: false,
+
       errorAlert: false,
+      successAlert: false,
+
+      sponsors: [],
       sponsor: {
         sponsor_name: '',
         sponsor_email: '',
@@ -61,29 +64,29 @@ class Sponsors extends Component {
       const newSponsor = await createSponsor(this.state.sponsor);
       this.setState((prevState) => ({
         sponsors: [
-          ...prevState.sponsors, newSponsor,
+          ...prevState.sponsors, newSponsor
         ],
-        showForm: false,
+        errorAlert: false,
+        successAlert: true,
       }))
     } catch (e) {
       console.log(e)
       this.setState({
+        successAlert: false,
         errorAlert: true,
       });
     }
   }
 
-  showForm = () => {
+  showModal = () => {
     this.setState({
-      showForm: true,
-      hideFormButton: true,
+      modalOpen: true,
     })
   }
 
-  hideForm = () => {
+  hideModal = () => {
     this.setState({
-      showForm: false,
-      hideFormButton: false,
+      modalOpen: false,
     })
   }
 
@@ -99,24 +102,29 @@ class Sponsors extends Component {
           helper={this.state.helper}
         />
         <div className="sponsors-form">
-          {!this.state.hideFormButton &&
-            <Button
-              animated='fade'
-              size='large'
-              color='teal'
-              onClick={this.showForm} >
-              <Button.Content visible>Add Your Organization</Button.Content>
-              <Button.Content hidden>Join Our Mission</Button.Content>
-            </Button>
-          }
-          {this.state.showForm &&
-            <CreateSponsorForm
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-              successAlert={this.state.successAlert}
-              errorAlert={this.state.errorAlert}
-              hideForm={this.hideForm}
-            />}
+          <Modal
+            trigger={
+              <Button
+                animated='fade'
+                size='large'
+                color='teal'
+                onClick={this.showModal} >
+                <Button.Content visible>Add Your Organization</Button.Content>
+                <Button.Content hidden>Join Our Mission</Button.Content>
+              </Button>}
+            closeIcon
+          >
+            <Header icon='map marker alternate' content='Add Your Organization' />
+            <Modal.Content
+              scrolling>
+              <CreateSponsorForm
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                successAlert={this.state.successAlert}
+                errorAlert={this.state.errorAlert}
+              />
+            </Modal.Content>
+          </Modal>
         </div>
         <div className="page sponsors-page box-shadow">
           {this.props.sponsors &&

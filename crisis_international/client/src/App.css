@@ -293,16 +293,15 @@ p, a {
   flex-wrap: wrap;
 }
 
-.ui.cards>.card>.image {
+.ui.card>.image>img, .ui.cards>.card>.image>img {
   background: 
   linear-gradient(
-    rgba(21, 37, 43, .6), 
-    rgb(89, 136, 153)
+    rgba(21, 37, 43, .1), 
+    rgb(89, 136, 153, .2)
   ),
-  url(./assets/images/home-banner.jpg);
+  url(./assets/images/ft-listing.jpg);
   background-size: cover;
   background-position: top center;
-  background-attachment: fixed;
 }
 
 .listings-cards .ui.cards, .sponsors-cards .ui.cards {

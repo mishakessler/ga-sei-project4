@@ -79,7 +79,9 @@ class App extends Component {
             <Link to="/sponsors" className="smooth">Sponsors</Link>
             <Link to="/directory" className="smooth">Directory</Link>
             <Link to="/" className="cta smooth">Dashboard</Link>
-            {/* <Dropdown placeholder='Add New...' clearable search selection >
+            {/* <Dropdown
+              icon='plus'
+              selection >
               <DropdownMenu>
                 <Dropdown.Item
                   icon='archive'
