@@ -1,6 +1,11 @@
 // React
 import React, { Component } from 'react'
+
+// React Router
 import { withRouter } from 'react-router-dom';
+
+// React Semantic
+import { Button } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'
@@ -110,8 +115,14 @@ class Sponsor extends Component {
           </div>
           <div className="sponsors-form">
             {!this.state.hideFormButton &&
-              <button
-                onClick={this.showForm} >Update Sponsor</button>
+              <Button
+                animated='fade'
+                size='large'
+                color='teal'
+                onClick={this.showForm} >
+                <Button.Content visible>See Something Wrong?</Button.Content>
+                <Button.Content hidden>Update This Sponsor</Button.Content>
+              </Button>
             }
             {this.state.showForm && <EditSponsorForm
               sponsor_name={this.state.sponsor.sponsor_name}

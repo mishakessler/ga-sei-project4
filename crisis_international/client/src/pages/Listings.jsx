@@ -20,6 +20,7 @@ import {
 
 // Assets
 import Logo from '../assets/graphics/CI-Wordmark-White.png'
+import PostImage from '../assets/images/ft-listing.jpg'
 
 class Listings extends Component {
   constructor(props) {
@@ -103,6 +104,7 @@ class Listings extends Component {
             <Button
               animated='fade'
               size='large'
+              color='teal'
               onClick={this.showForm} >
               <Button.Content visible>Add A Resource</Button.Content>
               <Button.Content hidden>Save Lives</Button.Content>
@@ -126,7 +128,8 @@ class Listings extends Component {
                     href={`/resources/${listing.id}`}
                     color='teal'
                   >
-                    <Image src={listing.listing_url_to_img} wrapped ui={true} />
+                    {/* <Image src={PostImage} wrapped ui={true} /> */}
+                    <Image src={listing.listing_url_to_img} className="overlay" wrapped ui={true} />
                     <Card.Content>
                       <Card.Header>{listing.listing_name}</Card.Header>
                       <Card.Meta>
@@ -137,11 +140,27 @@ class Listings extends Component {
                       </Card.Description>
                     </Card.Content>
                     <Card.Content extra>
-                      <a>
+                      <p>At a glance:</p>
+                      <p><a>
                         <Icon name='clock' />
                         {listing.listing_hours}
-                      </a>
-
+                      </a></p>
+                      <p><a>
+                        <Icon name='mobile' />
+                        {listing.listing_category}
+                      </a></p>
+                      <p><a>
+                        <Icon name='user' />
+                        {listing.listing_age}
+                      </a></p>
+                      <p><a>
+                        <Icon name='users' />
+                        {listing.listing_population}
+                      </a></p>
+                      <p><a>
+                        <Icon name='language' />
+                        {listing.listing_language}
+                      </a></p>
                     </Card.Content>
                   </Card>
                 </Card.Group>
