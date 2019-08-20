@@ -221,8 +221,10 @@ p, a {
 /********************** Footer *********************/
 
 .footer {
+  max-width: 920px;
+  padding-bottom: 30px;
   color: white;
-  padding-bottom: 40px;
+  margin: 0 auto;
 }
 
 .footer-nav {
