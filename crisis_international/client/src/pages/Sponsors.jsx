@@ -127,23 +127,30 @@ class Sponsors extends Component {
                     <Card
                       href={`/sponsors/${sponsor.id}`}
                       color='teal'
+                      className='smooth'
                     >
                       <Image src={PostImage} wrapped ui={true} />
                       <Card.Content>
                         <Card.Header>{sponsor.sponsor_name}</Card.Header>
                         <Card.Meta>
-                          {sponsor.sponsor_tagline}
+                          <a>
+                            <Icon name='map marker alternate' />
+                            {sponsor.sponsor_city}, {sponsor.sponsor_region}
+                          </a>
                         </Card.Meta>
                         <Card.Description>
-                          {sponsor.sponsor_desc}
+                          {sponsor.sponsor_tagline}
                         </Card.Description>
                       </Card.Content>
                       <Card.Content extra>
-                        <a>
-                          <Icon name='country' />
-                          {sponsor.sponsor_country}
-                        </a>
-
+                        {sponsor.listings.map(sponsorlisting =>
+                          <div key={sponsorlisting.id} >
+                            <a href={`/resources/${sponsorlisting.id}`}>
+                              <Icon name='certificate' />
+                              {sponsorlisting.listing_name}
+                            </a>
+                          </div>
+                        )}
                       </Card.Content>
                     </Card>
                   </Card.Group>
