@@ -1,6 +1,9 @@
 // React
 import React from 'react'
 
+// React Semantic
+import { Form, Input, Checkbox, Select, TextArea, Button } from 'semantic-ui-react'
+
 export default function EditSponsorForm(props) {
   return (
     <div className="form edit-sponsor-form">
