@@ -15,8 +15,8 @@ body {
   padding: 0;
   background: 
   linear-gradient(
-    rgba(59, 104, 119, 0.6), 
-    rgba(21, 37, 43, 0.95)
+    rgba(0, 0, 0, 0.6), 
+    rgba(0, 0, 0, 0.8)
   ),
   url(./assets/images/home-banner.jpg);
   background-size: cover;
@@ -36,31 +36,31 @@ body {
 /***************** Headers & Fonts *****************/
 
 h1 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 3em;
   font-weight: 600;
 }
 
 h2 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2.5em;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 h3 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 2em;
   font-weight: 400;
 }
 
 h4, h5, h6 {
   font-family: 'Raleway', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 p, a {
   font-family: 'Raleway', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 
@@ -221,8 +221,10 @@ p, a {
 /********************** Footer *********************/
 
 .footer {
+  max-width: 920px;
+  padding-bottom: 30px;
   color: white;
-  padding-bottom: 40px;
+  margin: 0 auto;
 }
 
 .footer-nav {
@@ -291,11 +293,11 @@ p, a {
   flex-wrap: wrap;
 }
 
-.ui.card>.image, .ui.cards>.card>.image {
+.ui.cards>.card>.image {
   background: 
   linear-gradient(
-    rgba(21, 37, 43, .9), 
-    rgba(21, 37, 43, 1)
+    rgba(21, 37, 43, .6), 
+    rgb(89, 136, 153)
   ),
   url(./assets/images/home-banner.jpg);
   background-size: cover;
