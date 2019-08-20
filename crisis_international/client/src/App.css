@@ -15,8 +15,8 @@ body {
   padding: 0;
   background: 
   linear-gradient(
-    rgba(59, 104, 119, 0.5), 
-    rgba(21, 37, 43, 0.9)
+    rgba(59, 104, 119, 0.6), 
+    rgba(21, 37, 43, 0.95)
   ),
   url(./assets/images/home-banner.jpg);
   background-size: cover;
@@ -27,6 +27,10 @@ body {
 
 .app {
   text-align: center;
+}
+
+.body {
+  padding: 25px;
 }
 
 /***************** Headers & Fonts *****************/
@@ -147,6 +151,9 @@ p, a {
 /******************** NAVIGATION *******************/
 /***************************************************/
 
+
+/********************** Header *********************/
+
 .page-header {
   display: inline-block;
   height: 90px;
@@ -180,7 +187,7 @@ p, a {
   text-transform: uppercase;
 }
 
-.header-nav a:active-page{
+.header-nav a:hover{
   color: #3dbb9f;
 }
 
@@ -210,6 +217,8 @@ p, a {
   color: white;
   text-transform: uppercase;
 }
+
+/********************** Footer *********************/
 
 .footer {
   color: white;
@@ -243,16 +252,12 @@ p, a {
   margin: 15px auto;
 }
 
-/****************** Pseudo Classes *****************/
-
-.header-nav a:hover {
-
-}
-
 
 /***************************************************/
 /********************** PAGES **********************/
 /***************************************************/
+
+/*********************** Hero **********************/
 
 .hero {
   min-height: 20vh;
@@ -264,6 +269,8 @@ p, a {
 .landing-hero {
   max-width: 800px;
 }
+
+/******************* Page Content ******************/
 
 .page {
   background-color: #e1eaed;
@@ -277,15 +284,33 @@ p, a {
   max-width: 800px;
 }
 
+/******************* Index Cards *******************/
+
 .listings-cards, .sponsors-cards {
   display: inline-flex;
   flex-wrap: wrap;
 }
 
-.listings-cards .ui.cards, .sponsors-cards .ui.cards {
-  margin: unset;
+.ui.card>.image, .ui.cards>.card>.image {
+  background: 
+  linear-gradient(
+    rgba(21, 37, 43, .9), 
+    rgba(21, 37, 43, 1)
+  ),
+  url(./assets/images/home-banner.jpg);
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
 }
 
+.listings-cards .ui.cards, .sponsors-cards .ui.cards {
+  margin: unset;
+  text-align: left;
+}
+
+.ui.img.overlay img {
+  max-width: 50px !important;
+}
 
 /***************************************************/
 /******************* COMPONENTS ********************/
