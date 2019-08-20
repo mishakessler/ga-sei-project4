@@ -103,6 +103,7 @@ class Sponsors extends Component {
             <Button
               animated='fade'
               size='large'
+              color='teal'
               onClick={this.showForm} >
               <Button.Content visible>Add Your Organization</Button.Content>
               <Button.Content hidden>Join Our Mission</Button.Content>
@@ -125,7 +126,7 @@ class Sponsors extends Component {
                   <Card.Group>
                     <Card
                       href={`/sponsors/${sponsor.id}`}
-                      color='blue'
+                      color='teal'
                     >
                       <Image src={PostImage} wrapped ui={true} />
                       <Card.Content>

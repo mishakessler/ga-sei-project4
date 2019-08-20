@@ -1,6 +1,11 @@
 // React
 import React, { Component } from 'react'
+
+// React Router
 import { withRouter } from 'react-router-dom';
+
+// React Semantic
+import { Button } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'
@@ -112,8 +117,14 @@ class Listing extends Component {
 
           <div className="listings-form">
             {!this.state.hideFormButton &&
-              <button
-                onClick={this.showForm} >Update Resource</button>
+              <Button
+                animated='fade'
+                size='large'
+                color='teal'
+                onClick={this.showForm} >
+                <Button.Content visible>See Something Wrong?</Button.Content>
+                <Button.Content hidden>Update This Resource</Button.Content>
+              </Button>
             }
             {this.state.showForm && <EditListingForm
               listing_name={this.state.listing.listing_name}

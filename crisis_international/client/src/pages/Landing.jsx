@@ -1,5 +1,7 @@
 // React
 import React, { Component } from 'react'
+
+// React Router
 import { withRouter } from 'react-router-dom';
 
 // Components
@@ -19,7 +21,7 @@ class Landing extends Component {
     this.state = {
       type: "page",
       title: "Welcome to Crisis International Enterprise",
-      tagline: "",
+      tagline: "Making Crises Safer & Easier to Navigate",
       description: "Crisis International is a comprehensive resource directory, knowledge base, and professional network for crisis prevention, intervention, and postvention needs. By leveraging international expertise, encouraging engagement from individuals and organizations in the field, and implementing modern improvements in user-oriented design, Crisis International is developing a financially-sustainable, globally-reliable platform in the pursuit of its foremost priority– saving precious minutes for any individual who needs help in a suicidal crisis.",
       helper: "Log in below or Contact Us to get started.",
     }
