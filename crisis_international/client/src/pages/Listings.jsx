@@ -127,13 +127,17 @@ class Listings extends Component {
                   <Card
                     href={`/resources/${listing.id}`}
                     color='teal'
+                    className='smooth'
                   >
                     {/* <Image src={PostImage} wrapped ui={true} /> */}
                     <Image src={listing.listing_url_to_img} className="overlay" wrapped ui={true} />
                     <Card.Content>
                       <Card.Header>{listing.listing_name}</Card.Header>
                       <Card.Meta>
-                        {listing.listing_country}
+                        <a>
+                          <Icon name='map marker alternate' />
+                          {listing.listing_country}
+                        </a>
                       </Card.Meta>
                       <Card.Description>
                         {listing.listing_tagline}

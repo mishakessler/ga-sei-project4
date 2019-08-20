@@ -335,9 +335,47 @@ Client-Side
 > Any code of which we are proud go here.
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+<div className="page sponsors-page box-shadow">
+          {this.props.sponsors &&
+            <div className="index sponsors-index">
+              {this.props.sponsors.map(sponsor =>
+                <div key={sponsor.id} className="sponsors-cards">
+                  <Card.Group>
+                    <Card
+                      href={`/sponsors/${sponsor.id}`}
+                      color='teal'
+                      className='smooth'
+                    >
+                      <Image src={PostImage} wrapped ui={true} />
+                      <Card.Content>
+                        <Card.Header>{sponsor.sponsor_name}</Card.Header>
+                        <Card.Meta>
+                          <a>
+                            <Icon name='map marker alternate' />
+                            {sponsor.sponsor_city}, {sponsor.sponsor_region}
+                          </a>
+                        </Card.Meta>
+                        <Card.Description>
+                          {sponsor.sponsor_tagline}
+                        </Card.Description>
+                      </Card.Content>
+                      <Card.Content extra>
+                        {sponsor.listings.map(sponsorlisting =>
+                          <div key={sponsorlisting.id} >
+                            <a href={`/resources/${sponsorlisting.id}`}>
+                              <Icon name='' />
+                              {sponsorlisting.listing_name}
+                            </a>
+                          </div>
+                        )}
+                      </Card.Content>
+                    </Card>
+                  </Card.Group>
+                </div>
+              )}
+            </div>
+          }
+        </div>
 ```
 
 <br>
