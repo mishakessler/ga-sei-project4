@@ -58,11 +58,11 @@ listing1 = Listing.create({
   listing_medium: "Phone",
   listing_age: "All Ages",
   listing_population: "All Individuals",
-  listing_language: "English",
+  listing_language: "English, Spanish",
   listing_hours: "Open 24/7",
   listing_email: nil,
-  listing_phone: "1-555-555-5555",
-  listing_coverage: "United States of America",
+  listing_phone: "1-800-273-8255",
+  listing_coverage: "National",
 })
 
 listing2 = Listing.create({
@@ -78,14 +78,14 @@ listing2 = Listing.create({
   listing_language: "English",
   listing_hours: "Open 24/7",
   listing_email: nil,
-  listing_phone: "1-555-555-5555p1",
+  listing_phone: "1-800-273-8255p1",
   listing_sms: nil,
   listing_url: nil,
   listing_address: nil,
   listing_city: nil,
   listing_region: nil,
-  listing_country: nil,
-  listing_coverage: "United States of America",
+  listing_country: "United States of America",
+  listing_coverage: "National",
 })
 
 listing3 = Listing.create({
@@ -108,7 +108,7 @@ listing3 = Listing.create({
   listing_city: nil,
   listing_region: nil,
   listing_country: "United States of America",
-  listing_coverage: "United States of America",
+  listing_coverage: "National",
 })
 
 listing4 = Listing.create({
@@ -131,7 +131,7 @@ listing4 = Listing.create({
   listing_city: nil,
   listing_region: nil,
   listing_country: "United States of America",
-  listing_coverage: "United States of America",
+  listing_coverage: "National",
 })
 
 listing5 = Listing.create({
@@ -154,7 +154,7 @@ listing5 = Listing.create({
   listing_city: nil,
   listing_region: nil,
   listing_country: "United States of America",
-  listing_coverage: "United States of America",
+  listing_coverage: "National",
 })
 
 listing6 = Listing.create({
@@ -177,7 +177,7 @@ listing6 = Listing.create({
   listing_city: nil,
   listing_region: nil,
   listing_country: "United States of America",
-  listing_coverage: "United States of America",
+  listing_coverage: "National",
 })
 
 listing7 = Listing.create({
@@ -200,7 +200,7 @@ listing7 = Listing.create({
   listing_city: nil,
   listing_region: nil,
   listing_country: "Canada",
-  listing_coverage: "Canada",
+  listing_coverage: "National",
 })
 
 listing8 = Listing.create({
@@ -223,7 +223,7 @@ listing8 = Listing.create({
   listing_city: nil,
   listing_region: nil,
   listing_country: "United Kingdom",
-  listing_coverage: "United Kingdom",
+  listing_coverage: "National",
 })
 
 sponsor1.listings.push(listing1, listing2)
