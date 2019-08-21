@@ -101,6 +101,7 @@ class Sponsors extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
+
         <div className="sponsors-form">
           <Modal
             trigger={
@@ -126,6 +127,7 @@ class Sponsors extends Component {
             </Modal.Content>
           </Modal>
         </div>
+
         <div className="page sponsors-page box-shadow">
           {this.props.sponsors &&
             <div className="index sponsors-index">
