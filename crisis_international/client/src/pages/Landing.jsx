@@ -1,37 +1,17 @@
+// React
 import React, { Component } from 'react'
-import { Link, Route, withRouter } from 'react-router-dom';
+
+// React Router
+import { withRouter } from 'react-router-dom';
 
 // Components
 import Hero from '../components/Hero'
-import Subheader from '../components/Subheader'
-import Disclaimer from '../components/Disclaimer'
 
 // Forms
-import CreateListingForm from '../components/forms/CreateListingForm'
-import CreateSponsorForm from '../components/forms/CreateSponsorForm'
-import EditListingForm from '../components/forms/EditListingForm'
-import EditSponsorForm from '../components/forms/EditSponsorForm'
-import LoginForm from '../components/forms/LoginForm'
 
 // API Functions
-import {
-  createSponsor,
-  indexSponsors,
-  showSponsor,
-  updateSponsor,
-  destroySponsor,
-} from '../services/sponsor'
-
-import {
-  createListing,
-  indexListings,
-  showListing,
-  updateListing,
-  destroyListing
-} from '../services/listing'
 
 // Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
 
 class Landing extends Component {
   constructor(props) {
@@ -39,25 +19,30 @@ class Landing extends Component {
 
     this.state = {
       type: "page",
-      title: "Welcome to Crisis International",
-      tagline: "Are you, or is someone you know, in crisis?",
-      description: "In the midst of a crisis, we often don't know where to go for help. Let's change that.",
-      helper: "Not sure where to start? View crisis resources by visiting our directory, browsing popular categories, or learn more about Crisis International below.",
+      title: "Welcome to Crisis International Enterprise",
+      tagline: "Making Crises Safer & Easier to Navigate",
+      description: null,
+      helper: "Log in below or Contact Us to get started.",
     }
   }
 
   render() {
     return (
-      <div className="page landing-page">
+      <>
         <Hero
+          className="landing-hero"
           type={this.state.type}
           title={this.state.title}
           tagline={this.state.tagline}
           description={this.state.description}
           helper={this.state.helper}
         />
-
-      </div>
+        <div className="page landing-page box-shadow">
+          <p>Crisis International is a comprehensive resource directory, knowledge base, and professional network for crisis prevention, intervention, and postvention needs.<p>
+            <br></br>
+          </p>By leveraging international expertise, encouraging engagement from individuals and organizations in the field, and implementing modern improvements in user-oriented design, Crisis International is developing a financially-sustainable, globally-reliable platform in the pursuit of its foremost priority– saving precious minutes for any individual who needs help in a suicidal crisis.</p>
+        </div>
+      </>
     )
   }
 }

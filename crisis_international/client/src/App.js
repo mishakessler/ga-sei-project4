@@ -1,4 +1,7 @@
+// React
 import React, { Component } from 'react'
+
+// React Router
 import {
   Link,
   Route,
@@ -7,50 +10,40 @@ import {
   Redirect
 } from 'react-router-dom';
 
+// React Semantic
+import {
+  Icon,
+  Button,
+} from 'semantic-ui-react'
+
 // Pages
 import Landing from './pages/Landing'
 import Directory from './pages/Directory'
 import Listings from './pages/Listings'
 import Sponsors from './pages/Sponsors'
-import About from './pages/About'
-import Contact from './pages/Contact'
+import Articles from './pages/Articles'
 
 // Components
-import Hero from './components/Hero'
-import Subheader from './components/Subheader'
 import Listing from './pages/Listing'
 import Sponsor from './pages/Sponsor'
-import Disclaimer from './components/Disclaimer'
 
 // Forms
-import CreateListingForm from './components/forms/CreateListingForm'
-import CreateSposorForm from './components/forms/CreateSponsorForm'
-import EditListingForm from './components/forms/EditListingForm'
-import EditSponsorForm from './components/forms/EditSponsorForm'
 import LoginForm from './components/forms/LoginForm'
 
 // API Functions
 import {
-  createSponsor,
   indexSponsors,
-  showSponsor,
-  updateSponsor,
-  destroySponsor,
 } from './services/sponsor'
 
 import {
-  createListing,
   indexListings,
-  showListing,
-  updateListing,
-  destroyListing
 } from './services/listing'
 
 // Stylesheet
 import './App.css';
 
 // Assets
-import Logo from './assets/graphics/CI-Wordmark-White.png'
+import Logo from './assets/graphics/CI-Wordmark-Enterprise.png'
 
 class App extends Component {
   constructor(props) {
@@ -58,6 +51,8 @@ class App extends Component {
     this.state = {
       sponsors: [],
       listings: [],
+      menuDiv: false,
+      menuButton: true,
     }
   }
 
@@ -70,64 +65,97 @@ class App extends Component {
     })
   }
 
+  showMenu = () => {
+    this.setState({
+      menuDiv: true,
+      menuButton: false,
+    })
+  }
+
+  hideMenu = () => {
+    this.setState({
+      menuDiv: false,
+      menuButton: true,
+    })
+  }
+
   render() {
     return (
       <div className="app">
-        <div className="header">
+        <div className="page-header">
           <div className="header-logo">
             <Link to="/"><img src={Logo}></img></Link>
           </div>
-          <div className="header-nav">
-            <Link to="/">Home</Link>
-            <Link to="/directory">Directory</Link>
-            <Link to="/sponsors">Sponsors</Link>
-            <Link to="/resources">Resources</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/listings/add">Add Resource</Link>
+          <div className="desktop-nav">
+            <Link to="/resources" className="smooth">Resources</Link>
+            <Link to="/sponsors" className="smooth">Sponsors</Link>
+            <Link to="/articles" className="smooth">Articles</Link>
+            <Link to="/directory" className="smooth">Directory</Link>
+            <Link to="/" className="cta smooth">Dashboard</Link>
           </div>
-        </div>
+          <div className="mobile-nav">
+            {!this.state.menuDiv &&
+              <Button
+                icon
+                cyan
+                massive
+                inverted
+                onClick={this.showMenu}
+                className="hamburger-icon">
+                <Icon name="bars" />
+              </Button>
+            }
+            {this.state.menuDiv &&
+              <div className="mobile-menu">
+                <Button
+                  icon
+                  cyan
+                  massive
+                  inverted
+                  onClick={this.hideMenu}
+                  className="hamburger-icon" >
+                  <Icon name="ellipsis vertical" />
+                </Button>
+                <Link to="/resources" className="smooth">Resources</Link>
+                <Link to="/sponsors" className="smooth">Sponsors</Link>
+                <Link to="/articles" className="smooth">Articles</Link>
+                <Link to="/directory" className="smooth">Directory</Link>
+                <Link to="/" className="cta smooth">Dashboard</Link>
+              </div>
+            }
+          </div>
+        </div >
 
         <div className="body">
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/directory" render={() =>
-              <Directory
-                listings={this.state.listings}
-                sponsors={this.state.sponsors}
-              />}
-            />
-            <Route exact path="/sponsors" render={() =>
-              <Sponsors sponsors={this.state.sponsors}
-              />}
-            />
-            <Route path="/sponsors/:id" render={() => <Sponsor />} />
             <Route exact path="/resources" render={() =>
-              <Listings
-                listings={this.state.listings}
-              />}
-            />
-            <Route exact path="/resources/add" render={(props) =>
-              <Listings
-                autoForm={true}
-                listings={this.state.listings}
-              />}
-            />
-            <Route path="/resources/:id" render={() => <Listing />} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path='/*' render={() => <Redirect to='/' />} />
+              <Listings listings={this.state.listings} />} />
+            <Route path="/resources/:id" render={() =>
+              <Listing />} />
+            <Route path="/articles" render={() =>
+              <Articles />} />
+            <Route exact path="/sponsors" render={() =>
+              <Sponsors sponsors={this.state.sponsors} />} />
+            <Route path="/sponsors/:id" render={() =>
+              <Sponsor />} />
+            <Route path="/directory" render={() =>
+              <Directory sponsors={this.state.sponsors} />} />
+            <Route path='/*' render={() =>
+              <Redirect to='/' />} />
           </Switch>
         </div>
 
         <div className="footer">
           <div className="footer-nav">
-            <Link to="/">Home</Link>
-            <Link to="/directory">Directory</Link>
-            <Link to="/sponsors">Sponsors</Link>
-            <Link to="/resources">Resources</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/" className="smooth">Home</Link>
+            <Link to="/resources" className="smooth">Resources</Link>
+            <Link to="/directory" className="smooth">Directory</Link>
+            <Link to="/articles" className="smooth">Articles</Link>
+            <Link to="/directory" className="smooth">Directory</Link>
+            <Link to="https://beta.crisisinternational.org/about" className="smooth" target="_blank">About</Link>
+            <Link to="https://beta.crisisinternational.org/news" className="smooth" target="_blank">News</Link>
+            <Link to="https://beta.crisisinternational.org/contact" className="smooth" target="_blank">Contact</Link>
           </div>
           <div className="footer-info">
             <p>Crisis International was conceived, designed, and developed by Misha Kessler.</p>

@@ -1,29 +1,57 @@
+// React
 import React from 'react'
+
+// React Semantic
+import { Form, Divider } from 'semantic-ui-react'
 
 export default function EditSponsorForm(props) {
   return (
     <div className="form edit-sponsor-form">
-      <h2>Update {props.sponsor_name}</h2>
-      <form onSubmit={props.handleSubmit}>
-        <input
+      <Form
+        onSubmit={props.handleSubmit}>
+        <Form.Input
+          fluid
+          type='text'
+          name='sponsor_name'
+          id='sponsor_name'
+          placeholder='Organization Name'
           onChange={props.handleChange}
-          name="sponsor_name"
-          type="text"
-          placeholder="Organization Name" />
-        <input
-          onChange={props.handleChange}
-          name="sponsor_email"
-          type="email"
-          placeholder="Email" />
-        <input
-          type="submit"
-          value="Submit Update" />
-      </form>
+          required
+        />
+        <Form.Group
+          widths='equal'>
+          <Form.Input
+            fluid
+            type='email'
+            name='sponsor_email'
+            id='sponsor_email'
+            placeholder="Admin Email"
+            onChange={props.handleChange}
+            required
+          />
+          <Form.Input
+            fluid
+            type='password'
+            name='password'
+            id='password'
+            placeholder="Admin Password"
+            onChange={props.handleChange}
+            required
+          />
+        </Form.Group>
+        <Form.Field>
+          <Form.Field required label='By editing this resource, you agree Terms of Use as defined by the Crisis International Trust & Transparency documents.' />
+        </Form.Field>
+        <Form.Button type='submit'>Update</Form.Button>
+      </Form>
+
       {props.successAlert &&
-        <p className="success-alert">Your update was successfully processed.</p>}
+        <div>
+          <p className="success-alert">This sponsor was successfully updated. <a href="/sponsors">Return to Sponsors</a></p>
+        </div>
+      }
       {props.errorAlert &&
-        <p className="error-alert">Sorry, your request could not be processed.</p>}
-      <button onClick={props.hideForm}>Close Form</button>
+        <p className="error-alert">Sorry, your request could not be processed. This may be because your organization or email is already in use.</p>}
     </div>
   )
 }
