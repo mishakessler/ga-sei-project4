@@ -275,6 +275,10 @@ p, a {
   margin: 10px auto;
 }
 
+.hero img {
+  max-height: 150px;
+}
+
 .landing-hero {
   max-width: 800px;
 }
@@ -286,7 +290,7 @@ p, a {
   margin: 50px auto;
   padding: 25px;
   border-radius: 10px;
-  /* DO NOT CALL MAX WIDTH HERE; BREAKS MODALS */
+  /* DO NOT CALL MAX WIDTH HERE; BREAKS SEMANTICUI MODALS */
 }
 
 .landing-page {
@@ -327,6 +331,11 @@ p, a {
   max-width: 50px !important;
 }
 
+/********************** Forms **********************/
+
+.form-container {
+  margin-top: 30px;
+}
 
 /************ Modal Overlay Correction *************/
 
@@ -335,11 +344,6 @@ p, a {
 .ui.active.dimmer {
   margin: 0;
 }
-
-/***************************************************/
-/******************* COMPONENTS ********************/
-/***************************************************/
-
 
 
 /***************************************************/

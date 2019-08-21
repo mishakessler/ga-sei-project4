@@ -37,10 +37,19 @@ class Sponsors extends Component {
       successAlert: false,
 
       sponsors: [],
-      sponsor: {
+      sponsorData: {
         sponsor_name: '',
         sponsor_email: '',
         password_digest: '',
+        sponsor_tagline: '',
+        sponsor_desc: '',
+        sponsor_url_to_logo: '',
+        sponsor_website: '',
+        sponsor_phone: '',
+        sponsor_address: '',
+        sponsor_city: '',
+        sponsor_region: '',
+        sponsor_country: '',
       }
     }
   }
@@ -48,8 +57,8 @@ class Sponsors extends Component {
   handleChange = (e) => {
     const { name, value } = e.target
     this.setState(prevState => ({
-      sponsor: {
-        ...prevState.sponsor,
+      sponsorData: {
+        ...prevState.sponsorData,
         [name]: value
       }
     }))
@@ -58,7 +67,7 @@ class Sponsors extends Component {
   handleSubmit = async (ev) => {
     try {
       ev.preventDefault()
-      const newSponsor = await createSponsor(this.state.sponsor);
+      const newSponsor = await createSponsor(this.state.sponsorData);
       this.setState((prevState) => ({
         sponsors: [
           ...prevState.sponsors, newSponsor
@@ -87,14 +96,15 @@ class Sponsors extends Component {
           helper={this.state.helper}
         />
 
-        <div className="sponsors-form">
+        <div className="form-container sponsors-form">
           <Modal
             trigger={
               <Button
                 animated='fade'
                 size='large'
                 color='teal'
-                onClick={this.showModal} >
+                onClick={this.showModal}
+                className='modal-button' >
                 <Button.Content visible>Add Your Organization</Button.Content>
                 <Button.Content hidden>Join Our Mission</Button.Content>
               </Button>}

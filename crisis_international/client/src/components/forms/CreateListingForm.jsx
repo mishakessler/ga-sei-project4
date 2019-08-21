@@ -6,7 +6,7 @@ import { Form, Input, Checkbox, Select, TextArea, Button } from 'semantic-ui-rea
 
 export default function CreateListingForm(props) {
   return (
-    <div className="form create-sponsor-form">
+    <div className="form create-listing-form">
       <Form
         onSubmit={props.handleSubmit}>
         <Form.Input
@@ -53,17 +53,18 @@ export default function CreateListingForm(props) {
           />
         </Form.Group>
         <Form.Field>
-          <Checkbox
-            label='By creating your account, you agree to the Terms and Conditions.'
-            required />
+          <Form.Checkbox required label='By editing this resource, you agree Terms of Use as defined by the Crisis International Trust & Transparency documents.' />
         </Form.Field>
-        <Button type='submit'>Submit New Sponsor</Button>
+        <Form.Button type='submit'>Update</Form.Button>
       </Form>
 
       {props.successAlert &&
-        <p className="success-alert">Your submission was successfully added.</p>}
+        <div>
+          <p className="success-alert">Your submission was successfully added. <a href="/resources">Return to Resources</a></p>
+        </div>
+      }
       {props.errorAlert &&
-        <p className="error-alert">Sorry, your request could not be processed.</p>}
+        <p className="error-alert">Sorry, your request could not be processed. This may be because your organization or email is already in use.</p>}
     </div>
   )
 }
