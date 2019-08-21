@@ -12,8 +12,6 @@ import {
 
 // React Semantic
 import {
-  Dropdown,
-  DropdownMenu,
   Icon,
   Button,
 } from 'semantic-ui-react'

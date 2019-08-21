@@ -12,7 +12,6 @@ import Hero from '../components/Hero'
 // API Functions
 
 // Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
 
 class Landing extends Component {
   constructor(props) {

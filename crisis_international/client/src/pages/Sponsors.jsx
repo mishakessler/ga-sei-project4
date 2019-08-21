@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 
 // React Router
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 // React Semantic
 import { Header, Card, Icon, Image, Button, Modal } from 'semantic-ui-react'

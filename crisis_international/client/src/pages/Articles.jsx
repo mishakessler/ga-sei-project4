@@ -10,7 +10,6 @@ import Hero from '../components/Hero'
 // API Functions
 
 // Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
 
 class About extends Component {
   constructor(props) {
