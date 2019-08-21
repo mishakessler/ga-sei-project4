@@ -20,21 +20,21 @@ import {
   destroySponsor,
 } from '../services/sponsor'
 
-// Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
-
 class Sponsor extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       type: "sponsor",
+      title: null,
+      tagline: null,
+      description: null,
       helper: null,
-      sponsor: [],
-      showForm: false,
-      hideFormButton: false,
+
       errorAlert: false,
       successAlert: false,
+
+      sponsor: [],
       sponsorData: {
         sponsor_name: '',
         sponsor_email: '',
@@ -65,30 +65,31 @@ class Sponsor extends Component {
       const updatedSponsor = await updateSponsor(this.props.match.params.id, this.state.sponsorData)
       this.setState({
         sponsor: updatedSponsor,
-        showForm: false,
+        errorAlert: false,
         successAlert: true,
       })
     } catch (e) {
       console.log(e)
       this.setState({
         errorAlert: true,
+        successAlert: false,
       });
     }
   }
 
-  showForm = () => {
-    this.setState({
-      showForm: true,
-      hideFormButton: true,
-    })
-  }
+  // showForm = () => {
+  //   this.setState({
+  //     showForm: true,
+  //     hideFormButton: true,
+  //   })
+  // }
 
-  hideForm = () => {
-    this.setState({
-      showForm: false,
-      hideFormButton: false,
-    })
-  }
+  // hideForm = () => {
+  //   this.setState({
+  //     showForm: false,
+  //     hideFormButton: false,
+  //   })
+  // }
 
   render() {
     return (
@@ -100,6 +101,7 @@ class Sponsor extends Component {
           tagline={this.state.sponsor.sponsor_tagline}
           helper={this.state.helper}
         />
+
         <div className="page sponsor-page box-shadow">
           <div className="sponsor-content">
             <div className="sponsor-sidebar">
@@ -113,6 +115,7 @@ class Sponsor extends Component {
               <p>{this.state.sponsor.sponsor_desc}</p>
             </div>
           </div>
+
           <div className="sponsors-form">
             {!this.state.hideFormButton &&
               <Button

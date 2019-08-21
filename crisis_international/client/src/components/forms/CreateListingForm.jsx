@@ -7,7 +7,6 @@ import { Form, Input, Checkbox, Select, TextArea, Button } from 'semantic-ui-rea
 export default function CreateListingForm(props) {
   return (
     <div className="form create-sponsor-form">
-      <h2>Add Your Resource</h2>
       <Form
         onSubmit={props.handleSubmit}>
         <Form.Input

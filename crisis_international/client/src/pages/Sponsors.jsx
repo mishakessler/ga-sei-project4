@@ -19,7 +19,6 @@ import {
 } from '../services/sponsor'
 
 // Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
 import PostImage from '../assets/images/ft-listing.jpg'
 
 
@@ -33,8 +32,6 @@ class Sponsors extends Component {
       tagline: null,
       description: null,
       helper: null,
-
-      modalOpen: false,
 
       errorAlert: false,
       successAlert: false,
@@ -76,18 +73,6 @@ class Sponsors extends Component {
         errorAlert: true,
       });
     }
-  }
-
-  showModal = () => {
-    this.setState({
-      modalOpen: true,
-    })
-  }
-
-  hideModal = () => {
-    this.setState({
-      modalOpen: false,
-    })
   }
 
   render() {
@@ -153,6 +138,7 @@ class Sponsors extends Component {
                         </Card.Description>
                       </Card.Content>
                       <Card.Content extra>
+                        <p>Their resources include:</p>
                         {sponsor.listings.map(sponsorlisting =>
                           <div key={sponsorlisting.id} >
                             <a href={`/resources/${sponsorlisting.id}`}>

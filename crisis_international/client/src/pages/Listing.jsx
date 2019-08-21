@@ -20,22 +20,21 @@ import {
   destroyListing
 } from '../services/listing'
 
-// Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
-
-
 class Listing extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       type: "resource",
+      title: null,
+      tagline: null,
+      description: null,
       helper: null,
-      listing: [],
-      showForm: false,
-      hideFormButton: false,
+
       errorAlert: false,
       successAlert: false,
+
+      listing: [],
       listingData: {
         listing_name: '',
         listing_tagline: '',
@@ -66,30 +65,31 @@ class Listing extends Component {
       const updatedListing = await updateListing(this.props.match.params.id, this.state.listingData)
       this.setState({
         listing: updatedListing,
-        showForm: false,
+        errorAlert: false,
         successAlert: true,
       })
     } catch (e) {
       console.log(e)
       this.setState({
         errorAlert: true,
+        successAlert: false,
       });
     }
   }
 
-  showForm = () => {
-    this.setState({
-      showForm: true,
-      hideFormButton: true,
-    })
-  }
+  // showForm = () => {
+  //   this.setState({
+  //     showForm: true,
+  //     hideFormButton: true,
+  //   })
+  // }
 
-  hideForm = () => {
-    this.setState({
-      showForm: false,
-      hideFormButton: false,
-    })
-  }
+  // hideForm = () => {
+  //   this.setState({
+  //     showForm: false,
+  //     hideFormButton: false,
+  //   })
+  // }
 
   render() {
     return (

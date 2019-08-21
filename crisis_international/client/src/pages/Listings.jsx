@@ -2,10 +2,10 @@
 import React, { Component } from 'react'
 
 // React Router
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 // React Semantic
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Header, Card, Icon, Image, Button, Modal } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'
@@ -18,10 +18,6 @@ import {
   createListing,
 } from '../services/listing'
 
-// Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
-import PostImage from '../assets/images/ft-listing.jpg'
-
 class Listings extends Component {
   constructor(props) {
     super(props)
@@ -32,10 +28,11 @@ class Listings extends Component {
       tagline: null,
       description: null,
       helper: null,
-      listings: [],
-      showForm: false,
-      hideFormButton: false,
+
       errorAlert: false,
+      successAlert: false,
+
+      listings: [],
       listing: {
         listing_name: '',
         listing_tagline: '',
@@ -64,29 +61,31 @@ class Listings extends Component {
         listings: [
           ...prevState.listings, newListing,
         ],
-        showForm: false,
+        errorAlert: false,
+        successAlert: true,
       }))
     } catch (e) {
       console.log(e)
       this.setState({
         errorAlert: true,
+        successAlert: false,
       });
     }
   }
 
-  showForm = () => {
-    this.setState({
-      showForm: true,
-      hideFormButton: true,
-    })
-  }
+  // showForm = () => {
+  //   this.setState({
+  //     showForm: true,
+  //     hideFormButton: true,
+  //   })
+  // }
 
-  hideForm = () => {
-    this.setState({
-      showForm: false,
-      hideFormButton: false,
-    })
-  }
+  // hideForm = () => {
+  //   this.setState({
+  //     showForm: false,
+  //     hideFormButton: false,
+  //   })
+  // }
 
   render() {
     return (
@@ -99,7 +98,34 @@ class Listings extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
+
         <div className="listings-form">
+          <Modal
+            trigger={
+              <Button
+                animated='fade'
+                size='large'
+                color='teal'
+                onClick={this.showModal} >
+                <Button.Content visible>Add A Resource</Button.Content>
+                <Button.Content hidden>Save A Life</Button.Content>
+              </Button>}
+            closeIcon
+          >
+            <Header icon='certificate' content='Add A Resource' />
+            <Modal.Content
+              scrolling>
+              <CreateListingForm
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                successAlert={this.state.successAlert}
+                errorAlert={this.state.errorAlert}
+              />
+            </Modal.Content>
+          </Modal>
+        </div>
+
+        {/* <div className="listings-form">
           {!this.state.hideFormButton &&
             <Button
               animated='fade'
@@ -118,7 +144,8 @@ class Listings extends Component {
               errorAlert={this.state.errorAlert}
               hideForm={this.hideForm}
             />}
-        </div>
+        </div> */}
+
         <div className="page listings-page box-shadow">
           <div className="index listings-index">
             {this.props.listings.map(listing =>
