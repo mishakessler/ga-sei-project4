@@ -2,10 +2,10 @@
 import React, { Component } from 'react'
 
 // React Router
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 // React Semantic
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Header, Card, Icon, Image, Button, Modal } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'
@@ -18,10 +18,6 @@ import {
   createListing,
 } from '../services/listing'
 
-// Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
-import PostImage from '../assets/images/ft-listing.jpg'
-
 class Listings extends Component {
   constructor(props) {
     super(props)
@@ -32,16 +28,32 @@ class Listings extends Component {
       tagline: null,
       description: null,
       helper: null,
-      listings: [],
-      showForm: false,
-      hideFormButton: false,
+
       errorAlert: false,
-      listing: {
+      successAlert: false,
+
+      listings: [],
+      listingData: {
         listing_name: '',
         listing_tagline: '',
         listing_desc: '',
         listing_industry: '',
         listing_category: '',
+        // listing_url_to_img: '',
+        listing_medium: '',
+        listing_age: '',
+        listing_population: '',
+        listing_language: '',
+        listing_hours: '',
+        listing_email: '',
+        listing_phone: '',
+        listing_sms: '',
+        listing_url: '',
+        listing_address: '',
+        listing_city: '',
+        listing_region: '',
+        listing_country: '',
+        listing_coverage: '',
       }
     }
   }
@@ -49,8 +61,8 @@ class Listings extends Component {
   handleChange = (e) => {
     const { name, value } = e.target
     this.setState(prevState => ({
-      listing: {
-        ...prevState.listing,
+      listingData: {
+        ...prevState.listingData,
         [name]: value
       }
     }))
@@ -59,33 +71,21 @@ class Listings extends Component {
   handleSubmit = async (ev) => {
     try {
       ev.preventDefault()
-      const newListing = await createListing(this.state.listing);
+      const newListing = await createListing(this.state.listingData);
       this.setState((prevState) => ({
         listings: [
           ...prevState.listings, newListing,
         ],
-        showForm: false,
+        errorAlert: false,
+        successAlert: true,
       }))
     } catch (e) {
       console.log(e)
       this.setState({
         errorAlert: true,
+        successAlert: false,
       });
     }
-  }
-
-  showForm = () => {
-    this.setState({
-      showForm: true,
-      hideFormButton: true,
-    })
-  }
-
-  hideForm = () => {
-    this.setState({
-      showForm: false,
-      hideFormButton: false,
-    })
   }
 
   render() {
@@ -99,26 +99,34 @@ class Listings extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="listings-form">
-          {!this.state.hideFormButton &&
-            <Button
-              animated='fade'
-              size='large'
-              color='teal'
-              onClick={this.showForm} >
-              <Button.Content visible>Add A Resource</Button.Content>
-              <Button.Content hidden>Save Lives</Button.Content>
-            </Button>
-          }
-          {this.state.showForm &&
-            <CreateListingForm
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-              successAlert={this.state.successAlert}
-              errorAlert={this.state.errorAlert}
-              hideForm={this.hideForm}
-            />}
+
+        <div className="form-container listings-form">
+          <Modal
+            trigger={
+              <Button
+                animated='fade'
+                size='large'
+                color='teal'
+                onClick={this.showModal}
+                className='modal-button' >
+                <Button.Content visible>Add A Resource</Button.Content>
+                <Button.Content hidden>Save A Life</Button.Content>
+              </Button>}
+            closeIcon
+          >
+            <Header icon='certificate' content='Add A Resource' />
+            <Modal.Content
+              scrolling>
+              <CreateListingForm
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                successAlert={this.state.successAlert}
+                errorAlert={this.state.errorAlert}
+              />
+            </Modal.Content>
+          </Modal>
         </div>
+
         <div className="page listings-page box-shadow">
           <div className="index listings-index">
             {this.props.listings.map(listing =>

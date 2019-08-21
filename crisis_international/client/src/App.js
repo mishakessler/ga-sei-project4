@@ -32,7 +32,6 @@ import Sponsor from './pages/Sponsor'
 // Forms
 import LoginForm from './components/forms/LoginForm'
 
-
 // API Functions
 import {
   indexSponsors,

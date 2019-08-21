@@ -39,18 +39,15 @@ export default function CreateSponsorForm(props) {
             required
           />
         </Form.Group>
-        <Form.Checkbox
-          label='By creating your account, you agree to the Terms and Conditions.'
-          required
-        />
-        <Form.Button
-          content='Submit New Sponsor'
-        />
+        <Form.Field>
+          <Form.Checkbox required label='By creating this sponsor, you agree Terms of Use as defined by the Crisis International Trust & Transparency documents.' />
+        </Form.Field>
+        <Form.Button type='submit'>Submit</Form.Button>
       </Form>
 
       {props.successAlert &&
         <div>
-          <p className="success-alert">Your submission was successfully added. <a href="/sponsors">Return to sponsors?</a></p>
+          <p className="success-alert">Your submission was successfully added. <a href="/sponsors">Return to Sponsors</a></p>
         </div>
       }
       {props.errorAlert &&

@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 
 // React Semantic
-import { Button } from 'semantic-ui-react'
+import { Header, Card, Icon, Image, Button, Modal } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'
@@ -20,24 +20,34 @@ import {
   destroySponsor,
 } from '../services/sponsor'
 
-// Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
-
 class Sponsor extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       type: "sponsor",
+      title: null,
+      tagline: null,
+      description: null,
       helper: null,
-      sponsor: [],
-      showForm: false,
-      hideFormButton: false,
+
       errorAlert: false,
       successAlert: false,
+
+      sponsor: [],
       sponsorData: {
         sponsor_name: '',
         sponsor_email: '',
+        password_digest: '',
+        sponsor_tagline: '',
+        sponsor_desc: '',
+        sponsor_url_to_logo: '',
+        sponsor_website: '',
+        sponsor_phone: '',
+        sponsor_address: '',
+        sponsor_city: '',
+        sponsor_region: '',
+        sponsor_country: '',
       }
     }
   }
@@ -65,29 +75,16 @@ class Sponsor extends Component {
       const updatedSponsor = await updateSponsor(this.props.match.params.id, this.state.sponsorData)
       this.setState({
         sponsor: updatedSponsor,
-        showForm: false,
+        errorAlert: false,
         successAlert: true,
       })
     } catch (e) {
       console.log(e)
       this.setState({
         errorAlert: true,
+        successAlert: false,
       });
     }
-  }
-
-  showForm = () => {
-    this.setState({
-      showForm: true,
-      hideFormButton: true,
-    })
-  }
-
-  hideForm = () => {
-    this.setState({
-      showForm: false,
-      hideFormButton: false,
-    })
   }
 
   render() {
@@ -100,6 +97,7 @@ class Sponsor extends Component {
           tagline={this.state.sponsor.sponsor_tagline}
           helper={this.state.helper}
         />
+
         <div className="page sponsor-page box-shadow">
           <div className="sponsor-content">
             <div className="sponsor-sidebar">
@@ -113,25 +111,32 @@ class Sponsor extends Component {
               <p>{this.state.sponsor.sponsor_desc}</p>
             </div>
           </div>
-          <div className="sponsors-form">
-            {!this.state.hideFormButton &&
-              <Button
-                animated='fade'
-                size='large'
-                color='teal'
-                onClick={this.showForm} >
-                <Button.Content visible>See Something Wrong?</Button.Content>
-                <Button.Content hidden>Update This Sponsor</Button.Content>
-              </Button>
-            }
-            {this.state.showForm && <EditSponsorForm
-              sponsor_name={this.state.sponsor.sponsor_name}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-              successAlert={this.state.successAlert}
-              errorAlert={this.state.errorAlert}
-              hideForm={this.hideForm}
-            />}
+
+          <div className="form-container sponsors-form">
+            <Modal
+              trigger={
+                <Button
+                  animated='fade'
+                  size='large'
+                  color='teal'
+                  onClick={this.showModal}
+                  className='modal-button' >
+                  <Button.Content visible>See something wrong?</Button.Content>
+                  <Button.Content hidden>Edit This Sponsor</Button.Content>
+                </Button>}
+              closeIcon
+            >
+              <Header icon='map marker alternate'>Edit {this.state.sponsor.sponsor_name}</Header>
+              <Modal.Content
+                scrolling>
+                <EditSponsorForm
+                  handleChange={this.handleChange}
+                  handleSubmit={this.handleSubmit}
+                  successAlert={this.state.successAlert}
+                  errorAlert={this.state.errorAlert}
+                />
+              </Modal.Content>
+            </Modal>
           </div>
         </div>
       </>

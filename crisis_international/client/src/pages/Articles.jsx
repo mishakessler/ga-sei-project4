@@ -35,7 +35,7 @@ class About extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="page about-page">
+        <div className="page articles-page">
           <p>The Crisis International Knowledge Base is under construction. Please check back later or Contact Us to get involved.</p>
         </div>
       </>

@@ -19,7 +19,6 @@ import {
 } from '../services/sponsor'
 
 // Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
 import PostImage from '../assets/images/ft-listing.jpg'
 
 
@@ -34,16 +33,23 @@ class Sponsors extends Component {
       description: null,
       helper: null,
 
-      modalOpen: false,
-
       errorAlert: false,
       successAlert: false,
 
       sponsors: [],
-      sponsor: {
+      sponsorData: {
         sponsor_name: '',
         sponsor_email: '',
         password_digest: '',
+        sponsor_tagline: '',
+        sponsor_desc: '',
+        sponsor_url_to_logo: '',
+        sponsor_website: '',
+        sponsor_phone: '',
+        sponsor_address: '',
+        sponsor_city: '',
+        sponsor_region: '',
+        sponsor_country: '',
       }
     }
   }
@@ -51,8 +57,8 @@ class Sponsors extends Component {
   handleChange = (e) => {
     const { name, value } = e.target
     this.setState(prevState => ({
-      sponsor: {
-        ...prevState.sponsor,
+      sponsorData: {
+        ...prevState.sponsorData,
         [name]: value
       }
     }))
@@ -61,7 +67,7 @@ class Sponsors extends Component {
   handleSubmit = async (ev) => {
     try {
       ev.preventDefault()
-      const newSponsor = await createSponsor(this.state.sponsor);
+      const newSponsor = await createSponsor(this.state.sponsorData);
       this.setState((prevState) => ({
         sponsors: [
           ...prevState.sponsors, newSponsor
@@ -78,18 +84,6 @@ class Sponsors extends Component {
     }
   }
 
-  showModal = () => {
-    this.setState({
-      modalOpen: true,
-    })
-  }
-
-  hideModal = () => {
-    this.setState({
-      modalOpen: false,
-    })
-  }
-
   render() {
     return (
       <>
@@ -101,14 +95,16 @@ class Sponsors extends Component {
           description={this.state.description}
           helper={this.state.helper}
         />
-        <div className="sponsors-form">
+
+        <div className="form-container sponsors-form">
           <Modal
             trigger={
               <Button
                 animated='fade'
                 size='large'
                 color='teal'
-                onClick={this.showModal} >
+                onClick={this.showModal}
+                className='modal-button' >
                 <Button.Content visible>Add Your Organization</Button.Content>
                 <Button.Content hidden>Join Our Mission</Button.Content>
               </Button>}
@@ -126,6 +122,7 @@ class Sponsors extends Component {
             </Modal.Content>
           </Modal>
         </div>
+
         <div className="page sponsors-page box-shadow">
           {this.props.sponsors &&
             <div className="index sponsors-index">
@@ -151,6 +148,7 @@ class Sponsors extends Component {
                         </Card.Description>
                       </Card.Content>
                       <Card.Content extra>
+                        <p>Their resources include:</p>
                         {sponsor.listings.map(sponsorlisting =>
                           <div key={sponsorlisting.id} >
                             <a href={`/resources/${sponsorlisting.id}`}>

@@ -275,6 +275,10 @@ p, a {
   margin: 10px auto;
 }
 
+.hero img {
+  max-height: 150px;
+}
+
 .landing-hero {
   max-width: 800px;
 }
@@ -283,14 +287,18 @@ p, a {
 
 .page {
   background-color: #e1eaed;
-  max-width: 1280px;
   margin: 50px auto;
   padding: 25px;
   border-radius: 10px;
+  /* DO NOT CALL MAX WIDTH HERE; BREAKS SEMANTICUI MODALS */
 }
 
 .landing-page {
   max-width: 800px;
+}
+
+.sponsors-page, .sponsor-page, .listings-page, .listing-page, .directory-page, .contact-page {
+    max-width: 1280px;
 }
 
 /******************* Index Cards *******************/
@@ -323,13 +331,19 @@ p, a {
   max-width: 50px !important;
 }
 
-/***************************************************/
-/******************* COMPONENTS ********************/
-/***************************************************/
+/********************** Forms **********************/
 
+.form-container {
+  margin-top: 30px;
+}
 
+/************ Modal Overlay Correction *************/
 
-
+.dimmed.dimmable>.ui.animating.dimmer, 
+.dimmed.dimmable>.ui.visible.dimmer, 
+.ui.active.dimmer {
+  margin: 0;
+}
 
 
 /***************************************************/
@@ -341,16 +355,17 @@ p, a {
 
 }
 
+
 @media all and (max-width: 1199px) {
 
 }
+
 
 @media all and (min-width: 1012px) {
   .mobile-nav {
     display: none;
   }
 }
-
 
 
 @media all and (max-width: 1011px) {
@@ -390,9 +405,11 @@ p, a {
 
 }
 
+
 @media all and (max-width: 736px) {
 
 }
+
 
 @media all and (max-width: 480px) {
   
