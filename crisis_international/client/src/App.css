@@ -197,7 +197,7 @@ p, a {
 
 /************** Semantic Nav Element ***************/
 
-.ui.selection.dropdown {
+/* .ui.selection.dropdown {
   margin-left: 20px;
   background-color: unset;
   border: none;
@@ -223,7 +223,7 @@ p, a {
 .ui.search.dropdown.visible>input.search {
   color: white;
   text-transform: uppercase;
-}
+} */
 
 /********************** Footer *********************/
 
@@ -272,7 +272,12 @@ p, a {
   min-height: 20vh;
   color: white;
   max-width: 1020px;
-  margin: 10px auto;
+  margin: 0 auto;
+}
+
+.hero p {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero img {
@@ -293,11 +298,11 @@ p, a {
   /* DO NOT CALL MAX WIDTH HERE; BREAKS SEMANTICUI MODALS */
 }
 
-.landing-page {
-  max-width: 800px;
+.landing-page, .listing-page, .sponsor-page {
+  max-width: 1020px;
 }
 
-.sponsors-page, .sponsor-page, .listings-page, .listing-page, .directory-page, .contact-page {
+.sponsors-page, .listings-page, .articles-page, .directory-page, .contact-page {
     max-width: 1280px;
 }
 

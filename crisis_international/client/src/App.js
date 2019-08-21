@@ -90,8 +90,8 @@ class App extends Component {
           </div>
           <div className="desktop-nav">
             <Link to="/resources" className="smooth">Resources</Link>
-            <Link to="/articles" className="smooth">Articles</Link>
             <Link to="/sponsors" className="smooth">Sponsors</Link>
+            <Link to="/articles" className="smooth">Articles</Link>
             <Link to="/directory" className="smooth">Directory</Link>
             <Link to="/" className="cta smooth">Dashboard</Link>
           </div>
@@ -119,8 +119,8 @@ class App extends Component {
                   <Icon name="ellipsis vertical" />
                 </Button>
                 <Link to="/resources" className="smooth">Resources</Link>
-                <Link to="/articles" className="smooth">Articles</Link>
                 <Link to="/sponsors" className="smooth">Sponsors</Link>
+                <Link to="/articles" className="smooth">Articles</Link>
                 <Link to="/directory" className="smooth">Directory</Link>
                 <Link to="/" className="cta smooth">Dashboard</Link>
               </div>
@@ -152,8 +152,8 @@ class App extends Component {
           <div className="footer-nav">
             <Link to="/" className="smooth">Home</Link>
             <Link to="/resources" className="smooth">Resources</Link>
+            <Link to="/directory" className="smooth">Directory</Link>
             <Link to="/articles" className="smooth">Articles</Link>
-            <Link to="/sponsors" className="smooth">Sponsors</Link>
             <Link to="/directory" className="smooth">Directory</Link>
             <Link to="https://beta.crisisinternational.org/about" className="smooth" target="_blank">About</Link>
             <Link to="https://beta.crisisinternational.org/news" className="smooth" target="_blank">News</Link>

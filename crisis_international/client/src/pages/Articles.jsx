@@ -19,7 +19,7 @@ class About extends Component {
     this.state = {
       type: "page",
       title: "View All Articles",
-      tagline: null,
+      tagline: "A knowledge base for guides, research, and general information on crisis prevention, intervention, and postvention.",
       description: null,
       helper: null,
     }

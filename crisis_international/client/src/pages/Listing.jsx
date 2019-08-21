@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 
 // React Semantic
-import { Header, Card, Icon, Image, Button, Modal } from 'semantic-ui-react'
+import { Header, Button, Modal } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'
@@ -38,6 +38,24 @@ class Listing extends Component {
       listingData: {
         listing_name: '',
         listing_tagline: '',
+        listing_desc: '',
+        listing_industry: '',
+        listing_category: '',
+        // listing_url_to_img: '',
+        listing_medium: '',
+        listing_age: '',
+        listing_population: '',
+        listing_language: '',
+        listing_hours: '',
+        listing_email: '',
+        listing_phone: '',
+        listing_sms: '',
+        listing_url: '',
+        listing_address: '',
+        listing_city: '',
+        listing_region: '',
+        listing_country: '',
+        listing_coverage: '',
       }
     }
   }
@@ -77,20 +95,6 @@ class Listing extends Component {
     }
   }
 
-  // showForm = () => {
-  //   this.setState({
-  //     showForm: true,
-  //     hideFormButton: true,
-  //   })
-  // }
-
-  // hideForm = () => {
-  //   this.setState({
-  //     showForm: false,
-  //     hideFormButton: false,
-  //   })
-  // }
-
   render() {
     return (
       <>
@@ -105,13 +109,13 @@ class Listing extends Component {
         <div className="page listing-page box-shadow">
           <div className="listing-content">
             <div className="listing-sidebar">
-
-            </div>
-            <div className="listing-detail">
               <p>Category: {this.state.listing.listing_category}</p>
               <p>Website: <a href={this.state.listing.listing_url} target="_blank" rel="noopener noreferrer">{this.state.listing.listing_name}</a></p>
-              <p>Contact: {this.state.listing.listing_phone}</p>
-              <p>Coverage: {this.state.listing.listing_coverage}</p>
+              <p>Contact: {this.state.listing.listing_phone}{this.state.listing.listing_sms}</p>
+            </div>
+            <div className="listing-detail">
+              <p>{this.state.listing.listing_name} provides {this.state.listing.listing_coverage} coverage to {this.state.listing.listing_region}{this.state.listing.listing_country}.</p>
+              <p>{this.state.listing.listing_desc}</p>
             </div>
           </div>
 

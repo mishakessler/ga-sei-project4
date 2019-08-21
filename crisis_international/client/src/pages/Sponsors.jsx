@@ -29,8 +29,8 @@ class Sponsors extends Component {
     this.state = {
       type: "page",
       title: "View All Sponsors",
-      tagline: null,
-      description: null,
+      tagline: "Our Sponsors are the organizations that provide life-saving crisis resources.",
+      description: "Use the at-a-glance feature below to see their resources or click on the Sponsor cards to view detailed listings.",
       helper: null,
 
       errorAlert: false,
