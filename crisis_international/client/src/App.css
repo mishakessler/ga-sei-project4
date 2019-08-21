@@ -171,14 +171,17 @@ p, a {
   margin: 0;
 }
 
-.header-nav {
+
+/**************** Desktop Navigation ***************/
+
+.desktop-nav {
   float: right;
   text-align: right;
   width: 60%;
   margin: 8px auto;
 }
 
-.header-nav a {
+.desktop-nav a {
   color: white;
   margin-left: 15px;
   padding: 12px 15px;
@@ -187,9 +190,12 @@ p, a {
   text-transform: uppercase;
 }
 
-.header-nav a:hover{
+.desktop-nav a:hover{
   color: #3dbb9f;
 }
+
+
+/************** Semantic Nav Element ***************/
 
 .ui.selection.dropdown {
   margin-left: 20px;
@@ -213,7 +219,8 @@ p, a {
   text-transform: uppercase;
 }
 
-.ui.search.dropdown.active>input.search, .ui.search.dropdown.visible>input.search {
+.ui.search.dropdown.active>input.search, 
+.ui.search.dropdown.visible>input.search {
   color: white;
   text-transform: uppercase;
 }
@@ -288,12 +295,14 @@ p, a {
 
 /******************* Index Cards *******************/
 
-.listings-cards, .sponsors-cards {
+.listings-cards, 
+.sponsors-cards {
   display: inline-flex;
   flex-wrap: wrap;
 }
 
-.ui.card>.image>img, .ui.cards>.card>.image>img {
+.ui.card>.image>img, 
+.ui.cards>.card>.image>img {
   background: 
   linear-gradient(
     rgba(21, 37, 43, .1), 
@@ -304,7 +313,8 @@ p, a {
   background-position: top center;
 }
 
-.listings-cards .ui.cards, .sponsors-cards .ui.cards {
+.listings-cards .ui.cards, 
+.sponsors-cards .ui.cards {
   margin: unset;
   text-align: left;
 }
@@ -323,5 +333,67 @@ p, a {
 
 
 /***************************************************/
-/******************** Responsive *******************/
+/******************** RESPONSIVE *******************/
 /***************************************************/
+
+
+@media all and (min-width: 1200px) {
+
+}
+
+@media all and (max-width: 1199px) {
+
+}
+
+@media all and (min-width: 1012px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+
+
+@media all and (max-width: 1011px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .header-logo {
+    float: none;
+    text-align: center;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    top: 5vw;
+    right: 5vw;
+    text-align: center;
+  }
+  
+  .mobile-nav a {
+    display: block;
+    color: white;
+    padding: 12px 15px;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .mobile-menu {
+    width: 90vw;
+    padding: 30px 15px 15px 15px;
+    background-color: #3b6877;
+    border-radius: 10px;
+    z-index: 9;
+  }
+
+
+}
+
+@media all and (max-width: 736px) {
+
+}
+
+@media all and (max-width: 480px) {
+  
+}
