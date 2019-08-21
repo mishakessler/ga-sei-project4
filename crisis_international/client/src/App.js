@@ -15,7 +15,7 @@ import {
   Dropdown,
   DropdownMenu,
   Icon,
-  Modal,
+  Button,
 } from 'semantic-ui-react'
 
 // Pages
@@ -54,6 +54,8 @@ class App extends Component {
     this.state = {
       sponsors: [],
       listings: [],
+      menuDiv: false,
+      menuButton: true,
     }
   }
 
@@ -66,6 +68,20 @@ class App extends Component {
     })
   }
 
+  showMenu = () => {
+    this.setState({
+      menuDiv: true,
+      menuButton: false,
+    })
+  }
+
+  hideMenu = () => {
+    this.setState({
+      menuDiv: false,
+      menuButton: true,
+    })
+  }
+
   render() {
     return (
       <div className="app">
@@ -73,30 +89,43 @@ class App extends Component {
           <div className="header-logo">
             <Link to="/"><img src={Logo}></img></Link>
           </div>
-          <div className="header-nav">
+          <div className="desktop-nav">
             <Link to="/resources" className="smooth">Resources</Link>
             <Link to="/articles" className="smooth">Articles</Link>
             <Link to="/sponsors" className="smooth">Sponsors</Link>
             <Link to="/directory" className="smooth">Directory</Link>
             <Link to="/" className="cta smooth">Dashboard</Link>
-            {/* <Dropdown
-              icon='plus'
-              selection >
-              <DropdownMenu>
-                <Dropdown.Item
-                  icon='archive'
-                  text='Resource'
-                />
-                <Dropdown.Item
-                  icon='sticky note'
-                  text='Article'
-                />
-                <Dropdown.Item
-                  icon='address card'
-                  text='Sponsor'
-                />
-              </DropdownMenu>
-            </Dropdown> */}
+          </div>
+          <div className="mobile-nav">
+            {!this.state.menuDiv &&
+              <Button
+                icon
+                cyan
+                massive
+                inverted
+                onClick={this.showMenu}
+                className="hamburger-icon">
+                <Icon name="bars" />
+              </Button>
+            }
+            {this.state.menuDiv &&
+              <div className="mobile-menu">
+                <Button
+                  icon
+                  cyan
+                  massive
+                  inverted
+                  onClick={this.hideMenu}
+                  className="hamburger-icon" >
+                  <Icon name="ellipsis vertical" />
+                </Button>
+                <Link to="/resources" className="smooth">Resources</Link>
+                <Link to="/articles" className="smooth">Articles</Link>
+                <Link to="/sponsors" className="smooth">Sponsors</Link>
+                <Link to="/directory" className="smooth">Directory</Link>
+                <Link to="/" className="cta smooth">Dashboard</Link>
+              </div>
+            }
           </div>
         </div >
 
