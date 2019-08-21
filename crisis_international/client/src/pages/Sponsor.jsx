@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 
 // React Semantic
-import { Header, Card, Icon, Image, Button, Modal } from 'semantic-ui-react'
+import { Header, Button, Modal } from 'semantic-ui-react'
 
 // Components
 import Hero from '../components/Hero'

@@ -1,6 +1,6 @@
 // React
 import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 // Components
 import Hero from '../components/Hero'
@@ -10,7 +10,6 @@ import Hero from '../components/Hero'
 // API Functions
 
 // Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
 
 class Directory extends Component {
   constructor(props) {

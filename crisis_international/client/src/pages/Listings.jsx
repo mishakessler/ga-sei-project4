@@ -25,8 +25,8 @@ class Listings extends Component {
     this.state = {
       type: "page",
       title: "View All Resources",
-      tagline: null,
-      description: null,
+      tagline: "Resources consist of crisis intervention and postvention hotlines, warmlines, respites, and medical centers.",
+      description: "All Resources are categorized and catalogued by multiple attributes. Use the at-a-glance feature below to see some attributes or click on the Resource cards to view detailed listings.",
       helper: null,
 
       errorAlert: false,

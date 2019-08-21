@@ -10,7 +10,6 @@ import Hero from '../components/Hero'
 // API Functions
 
 // Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
 
 class Contact extends Component {
   constructor(props) {

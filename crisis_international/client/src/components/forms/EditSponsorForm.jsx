@@ -2,7 +2,7 @@
 import React from 'react'
 
 // React Semantic
-import { Form, Input, Checkbox, Select, TextArea, Button } from 'semantic-ui-react'
+import { Form, Divider } from 'semantic-ui-react'
 
 export default function EditSponsorForm(props) {
   return (
@@ -40,7 +40,7 @@ export default function EditSponsorForm(props) {
           />
         </Form.Group>
         <Form.Field>
-          <Form.Checkbox required label='By editing this resource, you agree Terms of Use as defined by the Crisis International Trust & Transparency documents.' />
+          <Form.Field required label='By editing this resource, you agree Terms of Use as defined by the Crisis International Trust & Transparency documents.' />
         </Form.Field>
         <Form.Button type='submit'>Update</Form.Button>
       </Form>

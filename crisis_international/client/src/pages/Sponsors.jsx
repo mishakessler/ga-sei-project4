@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 
 // React Router
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 // React Semantic
 import { Header, Card, Icon, Image, Button, Modal } from 'semantic-ui-react'
@@ -29,8 +29,8 @@ class Sponsors extends Component {
     this.state = {
       type: "page",
       title: "View All Sponsors",
-      tagline: null,
-      description: null,
+      tagline: "Our Sponsors are the organizations that provide life-saving crisis resources.",
+      description: "Use the at-a-glance feature below to see their resources or click on the Sponsor cards to view detailed listings.",
       helper: null,
 
       errorAlert: false,

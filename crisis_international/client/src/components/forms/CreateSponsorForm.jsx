@@ -2,7 +2,7 @@
 import React from 'react'
 
 // React Semantic
-import { Form, Input, Checkbox, Select, TextArea, Button } from 'semantic-ui-react'
+import { Form, Divider } from 'semantic-ui-react'
 
 export default function CreateSponsorForm(props) {
   return (
@@ -11,7 +11,6 @@ export default function CreateSponsorForm(props) {
         onSubmit={props.handleSubmit}>
         <Form.Input
           fluid
-          type='text'
           name='sponsor_name'
           id='sponsor_name'
           placeholder='Organization Name'
@@ -40,7 +39,7 @@ export default function CreateSponsorForm(props) {
           />
         </Form.Group>
         <Form.Field>
-          <Form.Checkbox required label='By creating this sponsor, you agree Terms of Use as defined by the Crisis International Trust & Transparency documents.' />
+          <Form.Field required label='By creating this sponsor, you agree Terms of Use as defined by the Crisis International Trust & Transparency documents.' />
         </Form.Field>
         <Form.Button type='submit'>Submit</Form.Button>
       </Form>

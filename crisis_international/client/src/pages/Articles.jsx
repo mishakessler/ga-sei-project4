@@ -10,7 +10,6 @@ import Hero from '../components/Hero'
 // API Functions
 
 // Assets
-import Logo from '../assets/graphics/CI-Wordmark-White.png'
 
 class About extends Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class About extends Component {
     this.state = {
       type: "page",
       title: "View All Articles",
-      tagline: null,
+      tagline: "A knowledge base for guides, research, and general information on crisis prevention, intervention, and postvention.",
       description: null,
       helper: null,
     }
