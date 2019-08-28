@@ -35,8 +35,6 @@
 
 # Overview
 
-<!-- > Badges? -->
-
 ![Mockup](https://imgur.com/ZtLFzFJ.png)
 
 ## Project Description
