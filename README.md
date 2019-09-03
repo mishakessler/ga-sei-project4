@@ -1,16 +1,16 @@
-# Crisis International
+# Crisis International Enterprise
 
 ## Table of Contents
-- [Project Overview](#project-description)
+- Project Overview
   - [Inspiration](#project-inspiration)
   - [Business Model](#project-model)
   - [Team](#project-team)
   - [Permissions](#project-permissions)
-- [Design](#design)
+- Design
   - [Branding](#branding)
   - [Mockups](#mockups)
-- [Development](#development)
-  - [MVP](#mvp)
+- Development
+  - MVP
     - [ERD Model](#mvp-erd-model)
     - [Functional Goals](#functional-goals)
     - [Functional Heirarchy](#functional-heirarchy)
@@ -22,13 +22,13 @@
       - [Component Timeframes](#component-timeframes)
       - [Helper Functions](#helper-functions)
     - [Supporting Libraries](#supporting-libraries)
-  - [Post-MVP]
+  - Post-MVP
     - [Post-MVP ERD Model](#post-mvp-erd-model)
     - [Post-MVP Goals](#post-mvp-goals)
-- [Project Review](#project-review)
+- Project Review
   - [Code Showcase](#code-showcase)
   - [Bugs, Issues, and Resolutions](#issues-&-resolutions)
-- [Project Followup](#project-followup)
+- Project Followup
 
 <br>
 <br>
@@ -88,26 +88,21 @@ Created, designed, and developed by [Misha Kessler](https://github.com/mishakess
 
 ### Logomarks
 
-![Wordmark](https://imgur.com/nR347Ah.png)
-
 ![Wordmark](https://imgur.com/uQ2xASc.png)
-
-![Wordmark](https://imgur.com/pJLidEZ.png)
-
-![Wordmark](https://imgur.com/40T49qf.png)
 
 <br>
 
-<!-- ## Sitemap
+## Sitemap
 
-![Sitemap](https://imgur.com/)
-<p><em>Sitemap</em></p>
+Sitemap coming soon.
 
-<br> -->
+<br>
 
 ## Mockups
 
 ### Desktop 
+
+Crisis International Enterprise is due to be modeled after the Crisis International Beta currently built on WordPress:
 
 ![Landing](https://imgur.com/ZtLFzFJ.png)
 
@@ -137,7 +132,7 @@ Created, designed, and developed by [Misha Kessler](https://github.com/mishakess
 
 ### MVP ERD Model
 
-![ERD Model](https://imgur.com/h2okfqi.png)
+![ERD Model](https://imgur.com/8AYHsQA.png)
 
 <br>
 
@@ -308,7 +303,7 @@ client
 
 ### Post-MVP ERD Model
 
-![ERD Model](https://imgur.com/d4H2qB7.png)
+![ERD Model](https://imgur.com/LUAkhlI.png)
 
 ### Post-MVP Goals
 
